@@ -1,0 +1,112 @@
+.splittermond {
+  .atemholen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    p {
+      font-size: 1.3rem;
+      font-style: italic;
+    }
+  }
+  .zustaende {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    p {
+      font-size: 1.3rem;
+      font-style: italic;
+    }
+  }
+  .button-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .lebenspunkte {
+    .box-triple {
+      div {
+        background-color: transparent !important;
+      }
+      h3 {
+        min-height: 32px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+    }
+   
+  }
+  .leben-container {
+    display: flex;
+    justify-content: center;
+  }
+  .leben-grid-container {
+    display: inline-grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3px;
+    background-color: transparent;
+  }
+  .leben-grid-container_2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .leben-grid-container_3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .leben-grid-container_4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .leben-grid-container_5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .leben-grid-container_6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .leben-grid-container_7 {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  .leben-grid-container_8 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .leben-grid-container_9 {
+    grid-template-columns: repeat(9, 1fr);
+  }
+  .leben-grid-container_10 {
+    grid-template-columns: repeat(10, 1fr);
+  }
+  .leben-grid-container_11 {
+    grid-template-columns: repeat(11, 1fr);
+  }
+  .leben-grid-container_12 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .leben-grid-container_13 {
+    grid-template-columns: repeat(13, 1fr);
+  }
+  .leben-grid-container_14 {
+    grid-template-columns: repeat(14, 1fr);
+  }
+  .leben-grid-container_15 {
+    grid-template-columns: repeat(15, 1fr);
+  }
+
+  .leben-grid-item {
+    padding: 0px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border: 3px solid white;
+    background-color: white;
+    svg {
+      fill: var(--splittermond-color);
+      stroke: var(--splittermond-color);
+      background-color: transparent;
+    }
+
+    &.asterisk-sm {
+      rotate: 90deg;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.splittermond {
+  .box-erlaeuterungen {
+    margin: 10px;
+
+    h3 {
+        font-size: 1.2rem;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}

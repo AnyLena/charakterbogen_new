@@ -1,0 +1,30 @@
+.splittermond {
+  .ressourcen > div {
+    display: grid;
+    grid-template-columns: minmax(86px, .5fr) minmax(55px, .3fr) 2fr;
+
+
+    h3,
+    p {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+    p {
+      font-size: 1.8rem;
+    }
+
+    .description {
+      padding-top: 5px;
+      padding-bottom: 10px;
+      font-size: 1.5rem;
+    }
+  }
+  .ressourcen input {
+    font-size: 1.5rem;
+    padding: 8px 7px 11px 7px;
+  }
+}

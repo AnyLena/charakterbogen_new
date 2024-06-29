@@ -1,0 +1,23 @@
+nav {
+  background-color: var(--blue-color-dark);
+  font-size: 1.5rem;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+
+  a,
+  p {
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover,
+  p:hover {
+    background-color: var(--blue-color-light);
+    color: var(--blue-color-dark);
+    cursor: pointer;
+  }
+}

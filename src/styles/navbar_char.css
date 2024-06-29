@@ -1,0 +1,68 @@
+nav {
+  &.charMenu {
+    font-size: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    background-color: var(--blue-color-verylight);
+    gap: 5px;
+    padding-bottom: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    svg {
+      color: black;
+      font-size: 3.5rem;
+    }
+    a,
+    p {
+      text-decoration: none;
+      color: black;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    div {
+      border-radius: 10px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 5px;
+      width: 23%;
+    }
+
+    div:hover {
+      background-color: var(--blue-color-light);
+      color: var(--blue-color-dark);
+      cursor: pointer;
+      p,
+      svg {
+        color: var(--blue-color-dark);
+      }
+    }
+  }
+}
+nav.charMenu.sticky {
+  color: #fff; /* Change text color */
+  padding-bottom: 10px;
+  
+  svg {
+    font-size: 2.7rem;
+  }
+  div {
+    width: 11%;
+    margin-top: 10px;
+  }
+  p {
+    display: none;
+  }
+  div.edit {
+width: 40%;
+flex-direction: row;
+    p {
+      display: flex; 
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.splittermond {
+  .box-meister {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 5px;
+
+    .subtext {
+      font-style: italic;
+      font-size: 1.3rem;
+    }
+
+    button.edit {
+      width: 100%;
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      svg {
+        color: var(--blue-color-dark);
+      }
+      &:hover {
+        background-color: var(--blue-color-verylight);
+      }
+    }
+
+    .description {
+      grid-column: span 2;
+      padding-top: 10px;
+      padding-bottom: 5px;
+    }
+    .erase-btn {
+      grid-column: span 2;
+      margin-top: 1rem;
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 5px;
+      }
+    }
+  }
+}

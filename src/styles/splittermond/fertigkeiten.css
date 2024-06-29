@@ -1,0 +1,57 @@
+.splittermond {
+  .fertigkeiten > div {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr;
+    row-gap: 5px;
+
+    h3,
+    p {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+    ul {
+      background-color: white;
+      padding-left: 23px;
+    }
+
+    li.last {
+      padding-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.8rem;
+    }
+
+    .basis {
+      font-size: 1rem;
+    }
+    .description {
+      grid-column: span 3;
+      p {
+        padding: 10px 15px;
+        padding-top: 0px;
+        font-size: 1.4rem;
+      }
+      p:nth-child(1) {
+        padding-top: 10px;
+      }
+    }
+
+    .display-none {
+      display: none;
+    }
+  }
+  .fertigkeiten input {
+    text-align: center;
+  }
+  .kampffertigkeiten {
+   input {
+    text-align: center;
+    font-size: 2.5rem;
+   }
+  }
+}

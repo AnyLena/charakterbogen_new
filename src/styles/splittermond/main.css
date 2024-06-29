@@ -1,0 +1,10 @@
+.splittermond {
+  max-width: 800px;
+  margin: auto;
+  padding: 10px;
+  background-color: var(--blue-color-verylight);
+  .choose-character {
+    display: flex;
+    justify-content: center;
+  }
+}

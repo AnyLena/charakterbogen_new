@@ -1,0 +1,22 @@
+.splittermond {
+  .box-double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 5px;
+
+    h3,
+    p {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      background-color: white;
+      border-radius: 2px;
+    }
+  }
+
+  .box-double > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

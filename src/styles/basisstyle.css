@@ -1,0 +1,96 @@
+:root {
+  --green-color: rgb(25, 132, 25);
+  --green-color-dark: rgb(14, 77, 14);
+  --green-color-light: rgb(178, 223, 178);
+  --blue-color: #3d93fb;
+  --blue-color-dark: #205da8;
+  --blue-color-light: #b8d7fd;
+  --blue-color-verylight: #dbeafb;
+  font-size: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--blue-color-verylight);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Arvo", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.7rem;
+  margin: 2rem;
+  margin-top: 3rem;
+}
+h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+button {
+  background-color: var(--blue-color-dark);
+  border: none;
+  border-radius: 2px;
+  padding: 8px 10px;
+  color: white;
+
+  &:hover {
+    background-color: var(--blue-color-light);
+    color: var(--blue-color-dark);
+  }
+
+  &:active {
+    background-color: var(--blue-color);
+    color: var(--blue-color-dark);
+  }
+}
+
+/* Weitere div-styles */
+
+.full-height {
+  height: 100vh;
+}
+
+.accordeon {
+  background-color: white;
+  padding: 1px;
+
+  h2 {
+    margin: 0;
+    padding: 10px;
+    font-size: 1.5rem;
+  }
+}
+
+input, textarea {
+  margin: 0;
+  border: 2px solid var(--blue-color);
+  border-radius: 3px;
+  text-align: left;
+  padding: 3px 10px;
+  font-size: 1.4rem;
+  width: 100%;
+}

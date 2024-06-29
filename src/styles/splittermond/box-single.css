@@ -1,0 +1,14 @@
+.splittermond {
+  .box-single > p, .box-single > h3 {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: white;
+    border-radius: 2px;
+    margin-bottom: 5px;
+  }
+
+  .box-single > p.text-center, .box-single > h3.text-center {
+    justify-content: center;
+  }
+}

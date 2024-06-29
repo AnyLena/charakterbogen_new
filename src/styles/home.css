@@ -1,0 +1,42 @@
+.home {
+  height: 100vh;
+
+  h1 {
+    margin-top: 30px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  .button-container a {
+    text-decoration: none;
+  }
+  .home-buttons {
+    background-color: var(--blue-color-dark);
+    border-radius: 2px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .rpgLogo {
+    height: 3rem;
+    padding: 0px 5px;
+  }
+  .rpgName {
+    font-size: 1.7rem;
+    color: white;
+    padding: 0px 5px;
+  }
+  .home-buttons:hover {
+    cursor: pointer;
+    background-color: var(--blue-color-light);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    .rpgName {
+      color: var(--blue-color-dark);
+    }
+    .rpgLogo {
+      filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+    }
+  }
+}

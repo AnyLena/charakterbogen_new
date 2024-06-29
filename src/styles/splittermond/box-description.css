@@ -1,0 +1,22 @@
+.splittermond {
+  .box-description {
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr) 1fr 1fr 1fr;
+    gap: 5px;
+
+    h3,
+    p {
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+
+      &.descriptionValue {
+        font-size: 1.5rem;
+
+        &.span3 {
+          grid-column: span 3;
+        }
+      }
+    }
+  }
+}

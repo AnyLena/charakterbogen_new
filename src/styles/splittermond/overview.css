@@ -1,0 +1,23 @@
+.splittermond {
+
+  .overview {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    row-gap: 5px;
+
+    h2 {
+      margin: 0;
+      font-size: 1.25rem;
+      text-align: left;
+    }
+
+    h2,
+    p {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      background-color: white;
+      border-radius: 2px;
+    }
+  }
+}

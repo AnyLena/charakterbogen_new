@@ -1,0 +1,44 @@
+.splittermond {
+  
+  .attributes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    h3,
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5px;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+    p {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      padding: 0px;
+    }
+
+    .basis {
+      font-size: 1rem;
+      align-self: flex-end;
+    }
+
+    .attribute-input input {
+      text-align: center;
+    }
+    
+  }
+
+  .attributes > div {
+    background-color: white;
+  }
+  .attributes > div > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
