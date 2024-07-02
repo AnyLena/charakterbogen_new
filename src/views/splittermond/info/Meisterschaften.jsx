@@ -1,7 +1,7 @@
 import "../../../styles/splittermond/box-meister.css";
 import "../../../styles/splittermond/box-single.css";
-import { meisterschaftenListe } from "../../../utils/meisterschaften.js";
-import { deleteItem } from "../../../api/splittermond";
+import "../../../styles/splittermond/meisterschaften.css";
+import { deleteItem, getMeisterschaften } from "../../../api/splittermond";
 import { addItem } from "../../../api/splittermond";
 import { GiCrossMark } from "react-icons/gi";
 import { useEffect, useState } from "react";
@@ -13,39 +13,65 @@ const Meisterschaften = ({
   handleChange,
   editCharacterS,
   editCharacterM,
+  setEditCharacter,
   edit,
   newItem,
   setNewItem,
 }) => {
   const [fertigkeit, setFertigkeit] = useState(null);
-  const [selection, setSelection] = useState({});
+  const [selection, setSelection] = useState([]);
   const [selectedItem, setSelectedItem] = useState({});
+  const meisterschaftenListe = [
+    "Akrobatik",
+    "Alchemie",
+    "Anführen",
+    "Arkane Kunde",
+    "Athletik",
+    "Darbietung",
+    "Diplomatie",
+    "Edelhandwerk",
+    "Empathie",
+    "Entschlossenheit",
+    "Fingerfertigkeit",
+    "Geschichte und Mythen",
+    "Handwerk",
+    "Heilkunde",
+    "Heimlichkeit",
+    "Jagdkunst",
+    "Länderkunde",
+    "Naturkunde",
+    "Redegewandtheit",
+    "Schlösser und Fallen",
+    "Schwimmen",
+    "Seefahrt",
+    "Straßenkunde",
+    "Tierführung",
+    "Überleben",
+    "Wahrnehmung",
+    "Zähigkeit",
+  ];
 
-  const handleSelect = (e) => {
+  const handleSelectFertigkeit = (e) => {
     setFertigkeit(e.target.value);
-    const select = meisterschaftenListe[e.target.value];
-    setSelection(select);
+    getMeisterschaften(e.target.value, "f", setSelection);
   };
-  const handleSelect2 = (e) => {
+
+  const handleSelectMeisterschaft = (e) => {
     setSelectedItem(e.target.value);
   };
 
   const saveItem = () => {
-    console.log(selectedItem);
-  };
-
-  const addItem =
-    ("meisterschaften",
-    character,
-    setCharacter,
-    {
-      meisterschaftName: "–",
-      meisterschaftFertigkeit: "–",
+    addItem("meisterschaften", character, setCharacter, setEditCharacter, {
+      meisterschaftName: selectedItem,
+      meisterschaftFertigkeit: fertigkeit,
       meisterschaftWirkung: "–",
     });
+    setNewItem(null);
+    setFertigkeit(null);
+  };
 
   return (
-    <>
+    <section className="meisterschaften">
       <div className="box-single">
         <h2>Sprachen</h2>
         {edit ? (
@@ -106,29 +132,30 @@ const Meisterschaften = ({
 
       {/*  ---------- MEISTERSCHAFT HINZUFÜGEN ---------- */}
       {newItem === "meisterschaften" ? (
-        <>
-          <div>Fertigkeit</div>
-          <select onChange={handleSelect}>
+        <div className="select-box">
+          <div className="label">Fertigkeit</div>
+          <select onChange={handleSelectFertigkeit}>
             <option value="">Fertigkeit wählen</option>
-            {Object.keys(meisterschaftenListe).map((item, index) => (
+            {meisterschaftenListe.map((item, index) => (
               <option key={index} value={item}>
                 {item}
               </option>
             ))}
           </select>
-        </>
+        </div>
       ) : null}
       {fertigkeit ? (
-        <>
-          <div>Meisterschaft {fertigkeit}</div>
-          <select onChange={handleSelect2}>
-            {Object.keys(selection).map((item, index) => (
-              <option key={index} value={item}>
-                {item}
+        <div className="select-box">
+          <div className="label">Meisterschaft</div>
+          <select onChange={handleSelectMeisterschaft}>
+            <option value="">Meisterschaft wählen</option>
+            {selection.map((item, index) => (
+              <option key={index} value={item.name}>
+                {item.name}
               </option>
             ))}
           </select>
-        </>
+        </div>
       ) : null}
       {edit && newItem !== "meisterschaften" ? (
         <div className="button-div">
@@ -141,7 +168,7 @@ const Meisterschaften = ({
           <button onClick={saveItem}>Meisterschaft speichern</button>
         </div>
       ) : null}
-    </>
+    </section>
   );
 };
 

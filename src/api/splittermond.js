@@ -101,7 +101,8 @@ export const handleDelete = async (
 export const addItem = async (
   section,
   charData,
-  setCharData,
+  setCharacter,
+  setEditCharacter,
   propertyValues
 ) => {
   try {
@@ -112,10 +113,15 @@ export const addItem = async (
     });
     const newItem =
       response.data[section][Number(response.data[section].length - 1)];
-    setCharData((prev) => ({
+    setCharacter((prev) => ({
       ...prev,
       [section]: [...prev[section], newItem],
     }));
+    setEditCharacter((prev) => ({
+      ...prev,
+      [section]: [...prev[section], newItem],
+    }));
+
   } catch (error) {
     console.log(error.message);
   }
@@ -143,6 +149,17 @@ export const getMondzeichen = async (id, setMondzeichen) => {
       `${SERVER}/splittermond/mondzeichen/${id}`
     );
     setMondzeichen(response.data);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getMeisterschaften = async (fertigkeit, gruppe, setSelection) => {
+  try {
+    const response = await axios.get(
+      `${SERVER}/splittermond/meisterschaft/${gruppe}/${fertigkeit}`
+    );
+    setSelection(response.data);
   } catch (error) {
     console.log(error.message);
   }

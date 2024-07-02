@@ -107,9 +107,9 @@ const Character = () => {
     setNewCharacter(character);
   }, [character]);
 
-  useEffect(() => {
-    console.log("new", newCharacter);
-  }, [newCharacter]);
+  // useEffect(() => {
+  //   console.log("new", newCharacter);
+  // }, [newCharacter]);
 
   useEffect(() => {
     if (player && player._id) {
@@ -183,6 +183,7 @@ const Character = () => {
             edit={edit}
             newItem={newItem}
             setNewItem={setNewItem}
+            setEditCharacter={setNewCharacter}
           />
           <div id="navstaerken"></div>
           <Ressourcen
