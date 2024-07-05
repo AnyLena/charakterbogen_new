@@ -4,6 +4,7 @@ import "../../../styles/splittermond/meisterschaften.css";
 import { deleteItem, getMeisterschaften } from "../../../api/splittermond";
 import { addItem } from "../../../api/splittermond";
 import { GiCrossMark } from "react-icons/gi";
+import { meisterschaftenListe } from "../../../utils/staerkenFertigkeiten";
 import { useEffect, useState } from "react";
 const Meisterschaften = ({
   character,
@@ -21,35 +22,6 @@ const Meisterschaften = ({
   const [fertigkeit, setFertigkeit] = useState(null);
   const [selection, setSelection] = useState([]);
   const [selectedItem, setSelectedItem] = useState({});
-  const meisterschaftenListe = [
-    "Akrobatik",
-    "Alchemie",
-    "Anführen",
-    "Arkane Kunde",
-    "Athletik",
-    "Darbietung",
-    "Diplomatie",
-    "Edelhandwerk",
-    "Empathie",
-    "Entschlossenheit",
-    "Fingerfertigkeit",
-    "Geschichte und Mythen",
-    "Handwerk",
-    "Heilkunde",
-    "Heimlichkeit",
-    "Jagdkunst",
-    "Länderkunde",
-    "Naturkunde",
-    "Redegewandtheit",
-    "Schlösser und Fallen",
-    "Schwimmen",
-    "Seefahrt",
-    "Straßenkunde",
-    "Tierführung",
-    "Überleben",
-    "Wahrnehmung",
-    "Zähigkeit",
-  ];
 
   const handleSelectFertigkeit = (e) => {
     setFertigkeit(e.target.value);

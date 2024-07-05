@@ -192,7 +192,17 @@ const Character = () => {
             handleChange={handleChange}
             edit={edit}
           />
-          <Staerken staerken={character.staerken} />
+          <Staerken
+            setEditCharacter={setNewCharacter}
+            editCharacter={newCharacter.staerken}
+            staerken={character.staerken}
+            setCharacter={setCharacter}
+            character={character}
+            edit={edit}
+            newItem={newItem}
+            setNewItem={setNewItem}
+            handleChange={handleChange}
+          />
           <div id="navmondzeichen"></div>
           <Mondzeichen
             mond={character.mondzeichen}
@@ -210,10 +220,10 @@ const Character = () => {
             kampffertigkeiten={character.kampffertigkeiten}
             attribute={character.attribute}
           />
+          <WaffenRuestung ruestungen={character.ruestungen} />
           <MeisterschaftenKampf
             meisterschaften={character.kampfmeisterschaften}
           />
-          <WaffenRuestung ruestungen={character.ruestungen} />
           <Lebenspunkte
             charData={character}
             attribute={character.attribute}
