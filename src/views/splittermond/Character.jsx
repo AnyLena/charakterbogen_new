@@ -243,6 +243,9 @@ const Character = () => {
           <Magieschulen
             fertigkeiten={character.magieschulen}
             attribute={character.attribute}
+            edit={edit}
+            editCharacter={newCharacter.magieschulen}
+            handleChange={handleChange}
           />
           <MeisterschaftenMagie
             meisterschaften={character.magiemeisterschaften}
