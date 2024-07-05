@@ -5,7 +5,7 @@ import { deleteItem, getMeisterschaften } from "../../../api/splittermond";
 import { addItem } from "../../../api/splittermond";
 import { GiCrossMark } from "react-icons/gi";
 import { meisterschaftenListe } from "../../../utils/staerkenFertigkeiten";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 const Meisterschaften = ({
   character,
   setCharacter,
@@ -105,7 +105,7 @@ const Meisterschaften = ({
       {/*  ---------- MEISTERSCHAFT HINZUFÜGEN ---------- */}
       {newItem === "meisterschaften" ? (
         <div className="select-box">
-          <div className="label">Fertigkeit</div>
+          <div className="label">Fertigkeit wählen</div>
           <select onChange={handleSelectFertigkeit}>
             <option value="">Fertigkeit wählen</option>
             {meisterschaftenListe.map((item, index) => (

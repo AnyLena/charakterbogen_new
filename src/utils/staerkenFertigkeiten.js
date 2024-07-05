@@ -87,7 +87,9 @@ export const staerkenListe = [
   "Natürlicher Rüstungsschutz",
   "Orientierungssinn",
   "Priester:in",
-  "Robust",
+  "Robust 1",
+  "Robust 2",
+  "Robust 3",
   "Scharfe Sicht",
   "Scharfes Gehör",
   "Schild des Glaubens",
@@ -101,4 +103,14 @@ export const staerkenListe = [
   "Zäh",
   "Zielstrebig",
   "Zusätzliche Splitterpunkte",
+];
+
+export const KampffertigkeitenListe = [
+  "Handgemenge",
+  "Klingenwaffen",
+  "Hiebwaffen",
+  "Kettenwaffen",
+  "Schusswaffen",
+  "Stangenwaffen",
+  "Wurfwaffen",
 ];

@@ -1,4 +1,5 @@
 import "../../../styles/splittermond/box-meister.css";
+import "../../../styles/splittermond/meisterschaften.css";
 import { staerkenListe } from "../../../utils/staerkenFertigkeiten";
 import { useState } from "react";
 import { addItem, deleteItem } from "../../../api/splittermond";
@@ -75,7 +76,7 @@ const Staerken = ({
       {/*  ---------- STÄRKE HINZUFÜGEN ---------- */}
       {newItem === "staerken" ? (
         <div className="select-box">
-          <div className="label">Fertigkeit</div>
+          <div className="label">Stärke wählen</div>
           <select onChange={handleSelectFertigkeit}>
             <option value="">Stärke wählen</option>
             {staerkenListe.map((item, index) => (

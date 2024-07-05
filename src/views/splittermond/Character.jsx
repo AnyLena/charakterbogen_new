@@ -223,6 +223,14 @@ const Character = () => {
           <WaffenRuestung ruestungen={character.ruestungen} />
           <MeisterschaftenKampf
             meisterschaften={character.kampfmeisterschaften}
+            setEditCharacter={setNewCharacter}
+            editCharacter={newCharacter.kampfmeisterschaften}
+            setCharacter={setCharacter}
+            character={character}
+            edit={edit}
+            newItem={newItem}
+            setNewItem={setNewItem}
+            handleChange={handleChange}
           />
           <Lebenspunkte
             charData={character}
