@@ -114,3 +114,25 @@ export const KampffertigkeitenListe = [
   "Stangenwaffen",
   "Wurfwaffen",
 ];
+
+export const magiefertigkeitenListe = [
+  "Bannmagie",
+  "Beherrschungsmagie",
+  "Bewegungsmagie",
+  "Erkenntnismagie",
+  "Felsmagie",
+  "Feuermagie",
+  "Heilungsmagie",
+  "Illusionsmagie",
+  "Kampfmagie",
+  "Lichtmagie",
+  "Naturmagie",
+  "Schattenmagie",
+  "Schicksalsmagie",
+  "Schutzmagie",
+  "Stärkungsmagie",
+  "Todesmagie",
+  "Verwandlungsmagie",
+  "Wassermagie",
+  "Windmagie",
+];

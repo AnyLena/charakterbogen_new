@@ -1,8 +1,7 @@
 import "../../../styles/splittermond/box-meister.css";
 import "../../../styles/splittermond/box-single.css";
 import "../../../styles/splittermond/meisterschaften.css";
-import { deleteItem, getMeisterschaften } from "../../../api/splittermond";
-import { addItem } from "../../../api/splittermond";
+import { deleteItem, getMeisterschaften, addItem } from "../../../api/splittermond";
 import { GiCrossMark } from "react-icons/gi";
 import { meisterschaftenListe } from "../../../utils/staerkenFertigkeiten";
 import { useState } from "react";

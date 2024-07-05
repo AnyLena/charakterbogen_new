@@ -37,6 +37,7 @@ const Character = () => {
   const [newCharacter, setNewCharacter] = useState({});
   const [edit, setEdit] = useState(false);
   const [newItem, setNewItem] = useState(false);
+  const [fertigkeit, setFertigkeit] = useState(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState();
   const { id } = useParams();
@@ -149,6 +150,7 @@ const Character = () => {
             resetCharacter={resetCharacter}
             saveCharacter={saveCharacter}
             setNewItem={setNewItem}
+            setFertigkeit={setFertigkeit}
           />
           <Overview
             data={character.allgemeines}
@@ -244,6 +246,16 @@ const Character = () => {
           />
           <MeisterschaftenMagie
             meisterschaften={character.magiemeisterschaften}
+            setEditCharacter={setNewCharacter}
+            editCharacter={newCharacter.magiemeisterschaften}
+            setCharacter={setCharacter}
+            character={character}
+            edit={edit}
+            newItem={newItem}
+            setNewItem={setNewItem}
+            handleChange={handleChange}
+            fertigkeit={fertigkeit}
+            setFertigkeit={setFertigkeit}
           />
           <Fokuspunkte
             charData={character}

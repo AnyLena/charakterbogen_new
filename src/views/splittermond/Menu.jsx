@@ -11,7 +11,7 @@ import {
   GiMagicSwirl,
   GiCrossMark,
 } from "react-icons/gi";
-const Menu = ({ setEdit, edit, resetCharacter, saveCharacter, setNewItem }) => {
+const Menu = ({ setEdit, edit, resetCharacter, saveCharacter, setNewItem, setFertigkeit }) => {
   window.addEventListener("scroll", function () {
     var navbar = document.querySelector("nav.charMenu");
     if (window.pageYOffset > 0) {
@@ -31,8 +31,10 @@ const Menu = ({ setEdit, edit, resetCharacter, saveCharacter, setNewItem }) => {
   const handleDiscard = () => {
     setEdit(false);
     resetCharacter();
-    setNewItem(null)
+    setNewItem(null);
+    setFertigkeit(null)
   };
+
   const handleSave = () => {
     saveCharacter()
   };

@@ -46,6 +46,7 @@ const MeisterschaftenKampf = ({
 
   return (
     <>
+      {edit ? <h2>Kampfeisterschaften</h2> : null}
       {meisterschaften.length > 0 ? (
         <>
           <h2>Kampfeisterschaften</h2>
