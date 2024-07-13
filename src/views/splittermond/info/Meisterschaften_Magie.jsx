@@ -50,10 +50,12 @@ const MeisterschaftenMagie = ({
 
   return (
     <>
-    {edit ? <h2>Magiemeisterschaften</h2> : null}
+      {edit && meisterschaften.length === 0 ? (
+        <h2>Magiemeisterschaften</h2>
+      ) : null}
       {meisterschaften.length > 0 ? (
         <>
-        <h2>Magiemeisterschaften</h2>
+          <h2>Magiemeisterschaften</h2>
           {meisterschaften.map((item, index) => (
             <div className="box-meister" key={index}>
               {edit ? (
@@ -109,8 +111,13 @@ const MeisterschaftenMagie = ({
           <select onChange={handleSelectFertigkeit}>
             <option value="">Magieschule wählen</option>
             {magiefertigkeitenListe.map((item, index) => (
-              <option key={index} value={item}>
-                {item}
+              <option
+                key={index}
+                value={
+                  item.name.slice(0, 1).toLocaleUpperCase() + item.name.slice(1)
+                }
+              >
+                {item.name.slice(0, 1).toLocaleUpperCase() + item.name.slice(1)}
               </option>
             ))}
           </select>
