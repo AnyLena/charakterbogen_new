@@ -6,6 +6,7 @@ import "../../../styles/splittermond/lebenspunkte.css";
 
 import { FaAsterisk, FaXmark, FaSlash } from "react-icons/fa6";
 import { useEffect, useState } from "react";
+import { handleSubmit } from "../../../api/splittermond";
 
 const Fokuspunkte = ({ charData, attribute, fokuspunkte }) => {
   const [fokuspunkteLokal, setFokuspunkteLokal] = useState({
@@ -15,6 +16,7 @@ const Fokuspunkte = ({ charData, attribute, fokuspunkte }) => {
   });
 
   const [fokuspunkteGes, setFokuspunkteGes] = useState();
+  const [saveMessage, setSaveMessage] = useState(null);
 
   useEffect(() => {
     setFokuspunkteGes(
@@ -44,16 +46,45 @@ const Fokuspunkte = ({ charData, attribute, fokuspunkte }) => {
     }
   };
 
+  // const handleSave = () => {
+  //   localStorage.setItem("fokuspunkteLokal", JSON.stringify(fokuspunkteLokal));
+  // };
+
+  // useEffect(() => {
+  //   const savedFokuspunkteLokal = localStorage.getItem("fokuspunkteLokal");
+  //   if (savedFokuspunkteLokal) {
+  //     setFokuspunkteLokal(JSON.parse(savedFokuspunkteLokal));
+  //   }
+  // }, []);
+
   const handleSave = () => {
-    localStorage.setItem("fokuspunkteLokal", JSON.stringify(fokuspunkteLokal));
+    let updateChar = { ...charData, fokuspunkte: fokuspunkteLokal };
+    handleSubmit(updateChar, setSaveMessage);
   };
 
   useEffect(() => {
-    const savedFokuspunkteLokal = localStorage.getItem("fokuspunkteLokal");
-    if (savedFokuspunkteLokal) {
-      setFokuspunkteLokal(JSON.parse(savedFokuspunkteLokal));
+    if (fokuspunkte) {
+      setFokuspunkteLokal(fokuspunkte);
     }
   }, []);
+
+  const handlePause = (pause) => {
+    let fokusErschoepft = fokuspunkteLokal.fokusErschoepft;
+    let fokusVerzehrt = fokuspunkteLokal.fokusVerzehrt;
+    if (pause === "v") {
+      fokusErschoepft = 0;
+    }
+    if (pause === "r") {
+      fokusVerzehrt = fokusVerzehrt - attribute.willenskraft.aktuell * 2;
+      fokusVerzehrt < 0 ? (fokusVerzehrt = 0) : fokusVerzehrt;
+      fokusErschoepft = 0;
+    }
+    setFokuspunkteLokal((prevState) => ({
+      ...prevState,
+      fokusErschoepft: fokusErschoepft,
+      fokusVerzehrt: fokusVerzehrt,
+    }));
+  };
 
   return (
     <section className="lebenspunkte">
@@ -137,8 +168,18 @@ const Fokuspunkte = ({ charData, attribute, fokuspunkte }) => {
       </div>
 
       <div className="button-div">
+        <button className="button-light" onClick={() => handlePause("v")}>
+          Verschnaufpause (30 Min)
+        </button>
+        <button className="button-light" onClick={() => handlePause("r")}>
+          Ruhepause (6 Stunden)
+        </button>
+      </div>
+
+      <div className="button-div">
         <button onClick={handleSave}>Fokuspunkte speichern</button>
       </div>
+      {saveMessage ? <div className="save-message">{saveMessage}</div> : null}
     </section>
   );
 };

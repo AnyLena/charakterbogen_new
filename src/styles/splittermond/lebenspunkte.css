@@ -22,7 +22,22 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    gap: 10px;
+    .button-light {
+      background-color: var(--blue-color);
+      &:hover {
+        background-color: var(--blue-color-light);
+      }
+    }
+    .button-disabled {
+      background-color: rgb(148, 148, 148);
+      &:hover {
+        background-color: rgb(148, 148, 148);
+        color: white
+      }
+    }
   }
+
   .lebenspunkte {
     .box-triple {
       div {
@@ -35,7 +50,6 @@
         text-align: center;
       }
     }
-   
   }
   .leben-container {
     display: flex;

@@ -4,7 +4,7 @@ import { useAuth } from "../../context/AuthContext";
 import { getCharacter, handleSubmit } from "../../api/splittermond.js";
 import { useParams } from "react-router-dom";
 import Overview from "./info/Overview.jsx";
-import Attributes from "./info/Attributes.jsx";
+import Attribute from "./info/Attribute.jsx";
 import Fertigkeiten from "./info/Fertigkeiten.jsx";
 import Meisterschaften from "./info/Meisterschaften.jsx";
 import Ressourcen from "./info/Ressourcen.jsx";
@@ -159,8 +159,9 @@ const Character = () => {
             edit={edit}
           />
           <div id="navattribute"></div>
-          <Attributes
+          <Attribute
             data={character}
+            heldengrad={character.allgemeines.heldengrad}
             attribute={character.attribute}
             handleChange={handleChange}
             editCharacter={newCharacter.attribute}
@@ -232,12 +233,16 @@ const Character = () => {
             edit={edit}
             newItem={newItem}
             setNewItem={setNewItem}
+            fertigkeit={fertigkeit}
+            setFertigkeit={setFertigkeit}
             handleChange={handleChange}
           />
           <Lebenspunkte
             charData={character}
             attribute={character.attribute}
             lebenspunkte={character.lebenspunkte}
+            handleChange={handleChange}
+            setMessage={setMessage}
           />
           <div id="navmagie"></div>
           <Magieschulen

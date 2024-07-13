@@ -74,6 +74,16 @@ button {
   height: 100vh;
 }
 
+.save-message {
+  text-align: center;
+  margin: 5px auto;
+  padding: 5px;
+  width: 158px;
+  background-color: green;
+  color: white;
+  border-radius: 2px;
+}
+
 .accordeon {
   background-color: white;
   padding: 1px;

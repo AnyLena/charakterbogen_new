@@ -3,8 +3,13 @@ import "../../../styles/splittermond/lebenspunkte.css";
 
 import { FaAsterisk, FaXmark, FaSlash } from "react-icons/fa6";
 import { useEffect, useState } from "react";
+import { handleSubmit } from "../../../api/splittermond";
 
-const Lebenspunkte = ({ charData, attribute, lebenspunkte }) => {
+const Lebenspunkte = ({
+  charData,
+  attribute,
+  lebenspunkte
+}) => {
   const [lebenspunkteLokal, setLebenspunkteLokal] = useState({
     atemholen: true,
     lebenErschoepft: 0,
@@ -14,6 +19,7 @@ const Lebenspunkte = ({ charData, attribute, lebenspunkte }) => {
   });
 
   const [lebenspunkteGes, setLebenspunkteGes] = useState();
+  const [saveMessage, setSaveMessage] = useState(null);
 
   useEffect(() => {
     setLebenspunkteGes(
@@ -34,36 +40,66 @@ const Lebenspunkte = ({ charData, attribute, lebenspunkte }) => {
   const handleInput = (e) => {
     const { name, value } = e.target;
     const currentValue = lebenspunkteLokal[name];
-  
+
     if (value > currentValue && freieFelder === 0) {
       return;
     } else if (value < 0) {
       return;
     } else {
-      setLebenspunkteLokal((prevState) => ({ ...prevState, [name]: value }));
+      setLebenspunkteLokal((prevState) => ({
+        ...prevState,
+        [name]: Number(value),
+      }));
     }
   };
 
   const handleSave = () => {
-    localStorage.setItem(
-      "lebenspunkteLokal",
-      JSON.stringify(lebenspunkteLokal)
-    );
+    let updateChar = { ...charData, lebenspunkte: lebenspunkteLokal };
+    handleSubmit(updateChar, setSaveMessage);
   };
 
-  const handleCheck = () => {
+  const handlePause = (pause) => {
+    let lebenErschoepft = lebenspunkteLokal.lebenErschoepft;
+    let lebenVerzehrt  = lebenspunkteLokal.lebenVerzehrt;
+    let atemholen = lebenspunkteLokal.atemholen
+    if (pause === "a") {
+      lebenErschoepft = lebenErschoepft - 10 - attribute.konstitution.aktuell;
+      lebenErschoepft < 0 ? (lebenErschoepft = 0) : lebenErschoepft;
+      atemholen = true
+    }
+    if (pause === "v") {
+      lebenErschoepft = 0
+      atemholen = false
+    }
+    if (pause === "r") {  
+      lebenVerzehrt = lebenVerzehrt - attribute.konstitution.aktuell * 2;
+      lebenVerzehrt < 0 ? (lebenVerzehrt = 0) : lebenVerzehrt;
+      lebenErschoepft = 0
+      atemholen = false
+    }
     setLebenspunkteLokal((prevState) => ({
       ...prevState,
-      atemholen: !lebenspunkteLokal.atemholen,
+      atemholen: atemholen,
+      lebenErschoepft: lebenErschoepft,
+      lebenVerzehrt: lebenVerzehrt,
     }));
   };
 
   useEffect(() => {
-    const savedLebenspunkteLokal = localStorage.getItem("lebenspunkteLokal");
-    if (savedLebenspunkteLokal) {
-      setLebenspunkteLokal(JSON.parse(savedLebenspunkteLokal));
+    if (lebenspunkte) {
+      setLebenspunkteLokal(lebenspunkte);
     }
   }, []);
+
+  useEffect(() => {
+    let timer;
+    if (saveMessage) {
+      timer = setTimeout(() => {
+        setSaveMessage(null);
+      }, 1500);
+    }
+    return () => clearTimeout(timer);
+  }, [saveMessage]);
 
   return (
     <section className="lebenspunkte">
@@ -194,26 +230,35 @@ const Lebenspunkte = ({ charData, attribute, lebenspunkte }) => {
           </div>
         </div>
       </div>
+      <div className="button-div">
+        <button
+          className={
+            lebenspunkteLokal.atemholen
+              ? "button-light button-disabled"
+              : "button-light"
+          }
+          onClick={() => handlePause("a")}
+          disabled={lebenspunkteLokal.atemholen}
+        >
+          Atemholen
+        </button>
+        <button className="button-light" onClick={() => handlePause("v")}>
+          Verschnaufpause (30 Min)
+        </button>
+        <button className="button-light" onClick={() => handlePause("r")}>
+          Ruhepause (6 Stunden)
+        </button>
+      </div>
+
+      {/* <div className="zustaende">
+        <h3>Zustände:</h3>
+        <p>{lebenspunkteLokal.zustaende}</p>
+      </div> */}
 
       <div className="button-div">
         <button onClick={handleSave}>Lebenspunkte speichern</button>
       </div>
-
-      <div className="atemholen">
-        <h3>Atemholen eingesetzt</h3>
-        <p>(heilt {10 + attribute.konstitution.aktuell} Betäubungsschaden)</p>
-        <input
-          onChange={handleCheck}
-          type="checkbox"
-          checked={lebenspunkteLokal.atemholen}
-        />
-      </div>
-
-      <div className="zustaende">
-        <h3>Zustände:</h3>
-        <p>{lebenspunkteLokal.zustaende}</p>
-      </div>
-
+      {saveMessage ? <div className="save-message">{saveMessage}</div> : null}
     </section>
   );
 };

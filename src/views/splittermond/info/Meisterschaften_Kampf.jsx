@@ -19,9 +19,11 @@ const MeisterschaftenKampf = ({
   setEditCharacter,
   edit,
   newItem,
+  fertigkeit,
+  setFertigkeit,
   setNewItem,
 }) => {
-  const [fertigkeit, setFertigkeit] = useState(null);
+
   const [selection, setSelection] = useState([]);
   const [selectedItem, setSelectedItem] = useState({});
 
@@ -46,10 +48,10 @@ const MeisterschaftenKampf = ({
 
   return (
     <>
-      {edit ? <h2>Kampfeisterschaften</h2> : null}
+      {edit && meisterschaften.length === 0 ? <h2>Kampfmeisterschaften</h2> : null}
       {meisterschaften.length > 0 ? (
         <>
-          <h2>Kampfeisterschaften</h2>
+          <h2>Kampfmeisterschaften</h2>
           {meisterschaften.map((item, index) => (
             <div className="box-meister" key={index}>
               {edit ? (

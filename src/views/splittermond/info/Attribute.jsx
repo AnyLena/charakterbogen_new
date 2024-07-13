@@ -8,7 +8,14 @@ import {
   bonusLebenspunkte,
   bonusVerteidigung,
 } from "../../../utils/boniSplittermond";
-const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
+const Attribute = ({
+  data,
+  heldengrad,
+  attribute,
+  handleChange,
+  editCharacter,
+  edit,
+}) => {
   return (
     <>
       <h2>Attribute</h2>
@@ -26,12 +33,12 @@ const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.ausstrahlung.aktuell}
                 />
-                <p className="basis">Basis: {attribute.ausstrahlung.basis}</p>
+                <p className="basis">Basis: {attribute.ausstrahlung.basis} | Max:{" "}
+                {attribute.ausstrahlung.basis + heldengrad}</p>
               </div>
             ) : (
               <>
                 <p>{attribute.ausstrahlung.aktuell}</p>
-                <p className="basis">/ {attribute.ausstrahlung.basis}</p>
               </>
             )}
           </div>
@@ -39,7 +46,7 @@ const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
         <div>
           <h3>Beweglichkeit</h3>
           <div>
-          {edit ? (
+            {edit ? (
               <div className="attribute-input">
                 <input
                   type="number"
@@ -49,21 +56,20 @@ const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.beweglichkeit.aktuell}
                 />
-                <p className="basis">Basis: {attribute.beweglichkeit.basis}</p>
+                <p className="basis">Basis: {attribute.beweglichkeit.basis} | Max:{" "}
+                {attribute.beweglichkeit.basis + heldengrad}</p>
               </div>
             ) : (
               <>
-               <p>{attribute.beweglichkeit.aktuell}</p>
-               <p className="basis">/ {attribute.beweglichkeit.basis}</p>
+                <p>{attribute.beweglichkeit.aktuell}</p>
               </>
             )}
-            
           </div>
         </div>
         <div>
           <h3>Intuition</h3>
           <div>
-          {edit ? (
+            {edit ? (
               <div className="attribute-input">
                 <input
                   type="number"
@@ -73,21 +79,20 @@ const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.intuition.aktuell}
                 />
-                <p className="basis">Basis: {attribute.intuition.basis}</p>
+                <p className="basis">Basis: {attribute.intuition.basis} | Max:{" "}
+                {attribute.intuition.basis + heldengrad}</p>
               </div>
             ) : (
               <>
-             <p>{attribute.intuition.aktuell}</p>
-             <p className="basis">/ {attribute.intuition.basis}</p>
+                <p>{attribute.intuition.aktuell}</p>
               </>
             )}
-            
           </div>
         </div>
         <div>
           <h3>Konstitution</h3>
           <div>
-          {edit ? (
+            {edit ? (
               <div className="attribute-input">
                 <input
                   type="number"
@@ -97,21 +102,20 @@ const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.konstitution.aktuell}
                 />
-                <p className="basis">Basis: {attribute.konstitution.basis}</p>
+                <p className="basis">Basis: {attribute.konstitution.basis} | Max:{" "}
+                {attribute.konstitution.basis + heldengrad}</p>
               </div>
             ) : (
               <>
-             <p>{attribute.konstitution.aktuell}</p>
-             <p className="basis">/ {attribute.konstitution.basis}</p>
+                <p>{attribute.konstitution.aktuell}</p>
               </>
             )}
-            
           </div>
         </div>
         <div>
           <h3>Mystik</h3>
           <div>
-          {edit ? (
+            {edit ? (
               <div className="attribute-input">
                 <input
                   type="number"
@@ -121,21 +125,20 @@ const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.mystik.aktuell}
                 />
-                <p className="basis">Basis: {attribute.mystik.basis}</p>
+                <p className="basis">Basis: {attribute.mystik.basis} | Max:{" "}
+                {attribute.mystik.basis + heldengrad}</p>
               </div>
             ) : (
               <>
-             <p>{attribute.mystik.aktuell}</p>
-             <p className="basis">/ {attribute.mystik.basis}</p>
+                <p>{attribute.mystik.aktuell}</p>
               </>
             )}
-            
           </div>
         </div>
         <div>
           <h3>Stärke</h3>
           <div>
-          {edit ? (
+            {edit ? (
               <div className="attribute-input">
                 <input
                   type="number"
@@ -145,21 +148,20 @@ const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.staerke.aktuell}
                 />
-                <p className="basis">Basis: {attribute.staerke.basis}</p>
+                <p className="basis">Basis: {attribute.staerke.basis} | Max:{" "}
+                {attribute.staerke.basis + heldengrad}</p>
               </div>
             ) : (
               <>
-            <p>{attribute.staerke.aktuell}</p>
-            <p className="basis">/ {attribute.staerke.basis}</p>
+                <p>{attribute.staerke.aktuell}</p>
               </>
             )}
-            
           </div>
         </div>
         <div>
           <h3>Verstand</h3>
           <div>
-          {edit ? (
+            {edit ? (
               <div className="attribute-input">
                 <input
                   type="number"
@@ -169,21 +171,20 @@ const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.verstand.aktuell}
                 />
-                <p className="basis">Basis: {attribute.verstand.basis}</p>
+                <p className="basis">Basis: {attribute.verstand.basis} | Max:{" "}
+                {attribute.verstand.basis + heldengrad}</p>
               </div>
             ) : (
               <>
-            <p>{attribute.verstand.aktuell}</p>
-            <p className="basis">/ {attribute.verstand.basis}</p>
+                <p>{attribute.verstand.aktuell}</p>
               </>
             )}
-            
           </div>
         </div>
         <div>
           <h3>Willenskraft</h3>
           <div>
-          {edit ? (
+            {edit ? (
               <div className="attribute-input">
                 <input
                   type="number"
@@ -193,15 +194,16 @@ const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.willenskraft.aktuell}
                 />
-                <p className="basis">Basis: {attribute.willenskraft.basis}</p>
+                <p className="basis">
+                  Basis: {attribute.willenskraft.basis} | Max:{" "}
+                  {attribute.willenskraft.basis + heldengrad}
+                </p>
               </div>
             ) : (
               <>
-             <p>{attribute.willenskraft.aktuell}</p>
-             <p className="basis">/ {attribute.willenskraft.basis}</p>
+                <p>{attribute.willenskraft.aktuell}</p>
               </>
             )}
-          
           </div>
         </div>
       </div>
@@ -224,8 +226,7 @@ const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
         <div>
           <h3>Initiative</h3>
           <p>
-            {Number([10 - attribute.intuition.aktuell]) -
-              bonusInitiative(data)}
+            {Number([10 - attribute.intuition.aktuell]) - bonusInitiative(data)}
           </p>
         </div>
         <div>
@@ -242,9 +243,7 @@ const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
           <h3>Fokus</h3>
           <p>
             {[
-              2 *
-                (attribute.mystik.aktuell +
-                  attribute.willenskraft.aktuell) +
+              2 * (attribute.mystik.aktuell + attribute.willenskraft.aktuell) +
                 bonusFokuspunkte(data),
             ]}
           </p>
@@ -295,4 +294,4 @@ const Attributes = ({ data, attribute, handleChange, editCharacter, edit }) => {
   );
 };
 
-export default Attributes;
+export default Attribute;
