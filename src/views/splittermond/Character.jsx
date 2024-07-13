@@ -57,14 +57,6 @@ const Character = () => {
         ...prev,
         [name]: value,
       }));
-      // } else if (checkbox === "true") {
-      //   setCharData((prev) => ({
-      //     ...prev,
-      //     [section]: {
-      //       ...prev[section],
-      //       [name]: prev[section] ? !prev[section][name] : false,
-      //     },
-      //   }));
     } else if (subsection !== undefined) {
       setNewCharacter((prev) => ({
         ...prev,
@@ -270,7 +262,12 @@ const Character = () => {
             attribute={character.attribute}
             fokuspunkte={character.fokuspunkte}
           />
-          <Artefakte artefakte={character.artefakte} />
+          <Artefakte
+            artefakte={character.artefakte}
+            editCharacter={newCharacter.artefakte}
+            handleChange={handleChange}
+            edit={edit}
+          />
           <WaffenMagie
             zauber={character.zauber}
             kampffertigkeiten={character.kampffertigkeiten}
@@ -280,6 +277,10 @@ const Character = () => {
           <Ausruestung
             ausruestung={character.ausruestung}
             geld={character.geld}
+            editCharacterA={newCharacter.ausruestung}
+            editCharacterV={newCharacter.geld}
+            handleChange={handleChange}
+            edit={edit}
           />
         </section>
       ) : null}
