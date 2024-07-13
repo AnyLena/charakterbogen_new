@@ -8,8 +8,8 @@ const Magieschulen = ({ fertigkeiten, attribute, edit, editCharacter, handleChan
       <h2>Magieschulen</h2>
       <div className="fertigkeiten">
         <div>
-          {magiefertigkeitenListe.map((item) => (
-            <>
+          {magiefertigkeitenListe.map((item, index) => (
+            <div key={index}>
               {edit || fertigkeiten[item.name.replace("ä", "ae")] !== 0 ? (
                 <>
                   {edit ? (
@@ -49,7 +49,7 @@ const Magieschulen = ({ fertigkeiten, attribute, edit, editCharacter, handleChan
                   )}
                 </>
               ) : null}
-            </>
+            </div>
           ))}
         </div>
       </div>

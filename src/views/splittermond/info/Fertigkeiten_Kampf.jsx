@@ -8,14 +8,12 @@ const Kampffertigkeiten = ({ data, editCharacter, handleChange, edit }) => {
         {!edit
           ? Object.keys(data).map((key) =>
               data[key] === 0 ? null : (
-                <>
-                  <div key={key}>
-                    <h3>{key.slice(0, 1).toUpperCase() + key.slice(1)}</h3>
-                    <div>
-                      <p>{data[key]}</p>
-                    </div>
+                <div key={key}>
+                  <h3>{key.slice(0, 1).toUpperCase() + key.slice(1)}</h3>
+                  <div>
+                    <p>{data[key]}</p>
                   </div>
-                </>
+                </div>
               )
             )
           : null}
