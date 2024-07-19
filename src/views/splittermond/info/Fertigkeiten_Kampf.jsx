@@ -28,6 +28,7 @@ const Kampffertigkeiten = ({ data, editCharacter, handleChange, edit }) => {
                     data-section="kampffertigkeiten"
                     onChange={(e) => handleChange(e)}
                     value={editCharacter[key]}
+                    min={0}
                   />
                 </div>
               </div>

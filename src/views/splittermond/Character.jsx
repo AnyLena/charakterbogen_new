@@ -100,10 +100,6 @@ const Character = () => {
     setNewCharacter(character);
   }, [character]);
 
-  // useEffect(() => {
-  //   console.log("new", newCharacter);
-  // }, [newCharacter]);
-
   useEffect(() => {
     if (player && player._id) {
       const authToken = localStorage.getItem("jwt");
@@ -162,6 +158,7 @@ const Character = () => {
           <div id="navfertigkeiten"></div>
           <Fertigkeiten
             data={character.fertigkeiten}
+            heldengrad={character.allgemeines.heldengrad}
             attribute={character.attribute}
             handleChange={handleChange}
             editCharacter={newCharacter.fertigkeiten}
@@ -177,6 +174,8 @@ const Character = () => {
             editCharacterM={newCharacter.meisterschaften}
             edit={edit}
             newItem={newItem}
+            fertigkeit={fertigkeit}
+            setFertigkeit={setFertigkeit}
             setNewItem={setNewItem}
             setEditCharacter={setNewCharacter}
           />

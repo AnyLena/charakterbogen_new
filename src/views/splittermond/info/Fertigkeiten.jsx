@@ -4,6 +4,7 @@ import "../../../styles/splittermond/fertigkeiten.css";
 const Fertigkeiten = ({
   data,
   attribute,
+  heldengrad,
   handleChange,
   editCharacter,
   edit,
@@ -12,6 +13,15 @@ const Fertigkeiten = ({
   const handleClick = (item) => {
     open === item ? setOpen(null) : setOpen(item);
   };
+
+  const maxPunkteNachHeldengrad =
+    Number(heldengrad) === 1
+      ? 6
+      : Number(heldengrad) === 2
+      ? 9
+      : Number(heldengrad) === 3
+      ? 12
+      : 15;
 
   return (
     <>
@@ -34,6 +44,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.akrobatik}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -132,6 +144,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.alchemie}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -196,6 +210,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.anfuehren}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -270,6 +286,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.arkanekunde}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -358,6 +376,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.athletik}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -445,6 +465,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.darbietung}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -529,6 +551,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.diplomatie}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -635,6 +659,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.edelhandwerk}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -726,6 +752,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.empathie}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -810,6 +838,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.entschlossenheit}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -911,6 +941,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.fingerfertigkeit}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -1010,6 +1042,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.geschichtemythen}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -1105,6 +1139,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.handwerk}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -1180,6 +1216,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.heilkunde}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -1247,6 +1285,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.heimlichkeit}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -1330,6 +1370,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.jagdkunst}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -1429,6 +1471,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.laenderkunde}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -1514,6 +1558,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.naturkunde}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -1605,6 +1651,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.redegewandtheit}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -1690,6 +1738,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.schloesserfallen}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -1774,6 +1824,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.schwimmen}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -1850,6 +1902,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.seefahrt}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -1946,6 +2000,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.strassenkunde}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -2046,6 +2102,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.tierfuehrung}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -2122,6 +2180,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.ueberleben}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -2222,6 +2282,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.wahrnehmung}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (
@@ -2310,6 +2372,8 @@ const Fertigkeiten = ({
                 data-section="fertigkeiten"
                 onChange={(e) => handleChange(e)}
                 value={editCharacter.zaehigkeit}
+                max={maxPunkteNachHeldengrad}
+                min={0}
               />
             </>
           ) : (

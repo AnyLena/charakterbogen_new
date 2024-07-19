@@ -68,6 +68,16 @@ const Fokuspunkte = ({ charData, attribute, fokuspunkte }) => {
     }
   }, []);
 
+  useEffect(() => {
+    let timer;
+    if (saveMessage) {
+      timer = setTimeout(() => {
+        setSaveMessage(null);
+      }, 1500);
+    }
+    return () => clearTimeout(timer);
+  }, [saveMessage]);
+  
   const handlePause = (pause) => {
     let fokusErschoepft = fokuspunkteLokal.fokusErschoepft;
     let fokusVerzehrt = fokuspunkteLokal.fokusVerzehrt;

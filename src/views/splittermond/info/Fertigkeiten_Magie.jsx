@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import "../../../styles/splittermond/fertigkeiten.css";
 import { magiefertigkeitenListe } from "../../../utils/staerkenFertigkeiten";
 
@@ -9,7 +9,7 @@ const Magieschulen = ({ fertigkeiten, attribute, edit, editCharacter, handleChan
       <div className="fertigkeiten">
         <div>
           {magiefertigkeitenListe.map((item, index) => (
-            <div key={index}>
+            <React.Fragment key={index}>
               {edit || fertigkeiten[item.name.replace("ä", "ae")] !== 0 ? (
                 <>
                   {edit ? (
@@ -49,7 +49,7 @@ const Magieschulen = ({ fertigkeiten, attribute, edit, editCharacter, handleChan
                   )}
                 </>
               ) : null}
-            </div>
+            </React.Fragment>
           ))}
         </div>
       </div>

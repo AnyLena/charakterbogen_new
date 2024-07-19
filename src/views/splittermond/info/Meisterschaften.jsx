@@ -1,7 +1,11 @@
 import "../../../styles/splittermond/box-meister.css";
 import "../../../styles/splittermond/box-single.css";
 import "../../../styles/splittermond/meisterschaften.css";
-import { deleteItem, getMeisterschaften, addItem } from "../../../api/splittermond";
+import {
+  deleteItem,
+  getMeisterschaften,
+  addItem,
+} from "../../../api/splittermond";
 import { GiCrossMark } from "react-icons/gi";
 import { meisterschaftenListe } from "../../../utils/staerkenFertigkeiten";
 import { useState } from "react";
@@ -16,9 +20,10 @@ const Meisterschaften = ({
   setEditCharacter,
   edit,
   newItem,
+  fertigkeit,
+  setFertigkeit,
   setNewItem,
 }) => {
-  const [fertigkeit, setFertigkeit] = useState(null);
   const [selection, setSelection] = useState([]);
   const [selectedItem, setSelectedItem] = useState({});
 

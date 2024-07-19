@@ -32,9 +32,13 @@ const Attribute = ({
                   data-subsection="aktuell"
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.ausstrahlung.aktuell}
+                  max={attribute.ausstrahlung.basis + heldengrad}
+                  min={0}
                 />
-                <p className="basis">Basis: {attribute.ausstrahlung.basis} | Max:{" "}
-                {attribute.ausstrahlung.basis + heldengrad}</p>
+                <p className="basis">
+                  Basis: {attribute.ausstrahlung.basis} | Max:{" "}
+                  {attribute.ausstrahlung.basis + heldengrad}
+                </p>
               </div>
             ) : (
               <>
@@ -55,9 +59,13 @@ const Attribute = ({
                   data-subsection="aktuell"
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.beweglichkeit.aktuell}
+                  max={attribute.beweglichkeit.basis + heldengrad}
+                  min={0}
                 />
-                <p className="basis">Basis: {attribute.beweglichkeit.basis} | Max:{" "}
-                {attribute.beweglichkeit.basis + heldengrad}</p>
+                <p className="basis">
+                  Basis: {attribute.beweglichkeit.basis} | Max:{" "}
+                  {attribute.beweglichkeit.basis + heldengrad}
+                </p>
               </div>
             ) : (
               <>
@@ -78,9 +86,13 @@ const Attribute = ({
                   data-subsection="aktuell"
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.intuition.aktuell}
+                  max={attribute.intuition.basis + heldengrad}
+                  min={0}
                 />
-                <p className="basis">Basis: {attribute.intuition.basis} | Max:{" "}
-                {attribute.intuition.basis + heldengrad}</p>
+                <p className="basis">
+                  Basis: {attribute.intuition.basis} | Max:{" "}
+                  {attribute.intuition.basis + heldengrad}
+                </p>
               </div>
             ) : (
               <>
@@ -101,9 +113,13 @@ const Attribute = ({
                   data-subsection="aktuell"
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.konstitution.aktuell}
+                  max={attribute.konstitution.basis + heldengrad}
+                  min={0}
                 />
-                <p className="basis">Basis: {attribute.konstitution.basis} | Max:{" "}
-                {attribute.konstitution.basis + heldengrad}</p>
+                <p className="basis">
+                  Basis: {attribute.konstitution.basis} | Max:{" "}
+                  {attribute.konstitution.basis + heldengrad}
+                </p>
               </div>
             ) : (
               <>
@@ -124,9 +140,13 @@ const Attribute = ({
                   data-subsection="aktuell"
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.mystik.aktuell}
+                  max={attribute.mystik.basis + heldengrad}
+                  min={0}
                 />
-                <p className="basis">Basis: {attribute.mystik.basis} | Max:{" "}
-                {attribute.mystik.basis + heldengrad}</p>
+                <p className="basis">
+                  Basis: {attribute.mystik.basis} | Max:{" "}
+                  {attribute.mystik.basis + heldengrad}
+                </p>
               </div>
             ) : (
               <>
@@ -147,9 +167,13 @@ const Attribute = ({
                   data-subsection="aktuell"
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.staerke.aktuell}
+                  max={attribute.staerke.basis + heldengrad}
+                  min={0}
                 />
-                <p className="basis">Basis: {attribute.staerke.basis} | Max:{" "}
-                {attribute.staerke.basis + heldengrad}</p>
+                <p className="basis">
+                  Basis: {attribute.staerke.basis} | Max:{" "}
+                  {attribute.staerke.basis + heldengrad}
+                </p>
               </div>
             ) : (
               <>
@@ -170,9 +194,13 @@ const Attribute = ({
                   data-subsection="aktuell"
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.verstand.aktuell}
+                  max={attribute.verstand.basis + heldengrad}
+                  min={0}
                 />
-                <p className="basis">Basis: {attribute.verstand.basis} | Max:{" "}
-                {attribute.verstand.basis + heldengrad}</p>
+                <p className="basis">
+                  Basis: {attribute.verstand.basis} | Max:{" "}
+                  {attribute.verstand.basis + heldengrad}
+                </p>
               </div>
             ) : (
               <>
@@ -193,6 +221,8 @@ const Attribute = ({
                   data-subsection="aktuell"
                   onChange={(e) => handleChange(e)}
                   value={editCharacter.willenskraft.aktuell}
+                  max={attribute.willenskraft.basis + heldengrad}
+                  min={0}
                 />
                 <p className="basis">
                   Basis: {attribute.willenskraft.basis} | Max:{" "}
