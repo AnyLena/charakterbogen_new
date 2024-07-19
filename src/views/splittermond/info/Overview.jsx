@@ -1,87 +1,38 @@
 import "../../../styles/splittermond/overview.css";
 import "../../../styles/splittermond/box-single.css";
 import "../../../styles/splittermond/box-double.css";
+import React from "react";
 const Overview = ({ data, handleChange, editCharacter, edit }) => {
+  const charakterOverview = [
+    "ausbildung",
+    "kultur",
+    "abstammung",
+    "rasse",
+    "geburtsort",
+    "schwaechen",
+    "erscheinung",
+  ];
   return (
     <>
       <div className="overview">
-        <h2>Ausbildung</h2>
-        {edit ? (
-          <input
-            name="ausbildung"
-            data-section="allgemeines"
-            onChange={(e) => handleChange(e)}
-            value={editCharacter.ausbildung}
-          />
-        ) : (
-          <p>{data.ausbildung}</p>
-        )}
-        <h2>Kultur</h2>
-        {edit ? (
-          <input
-            name="kultur"
-            data-section="allgemeines"
-            onChange={(e) => handleChange(e)}
-            value={editCharacter.kultur}
-          />
-        ) : (
-          <p>{data.kultur}</p>
-        )}
-        <h2>Abstammung</h2>
-        {edit ? (
-          <input
-            name="abstammung"
-            data-section="allgemeines"
-            onChange={(e) => handleChange(e)}
-            value={editCharacter.abstammung}
-          />
-        ) : (
-          <p>{data.abstammung}</p>
-        )}
-        <h2>Rasse</h2>
-        {edit ? (
-          <input
-            name="rasse"
-            data-section="allgemeines"
-            onChange={(e) => handleChange(e)}
-            value={editCharacter.rasse}
-          />
-        ) : (
-          <p>{data.rasse}</p>
-        )}
-        <h2>Geburtsort</h2>
-        {edit ? (
-          <input
-            name="geburtsort"
-            data-section="allgemeines"
-            onChange={(e) => handleChange(e)}
-            value={editCharacter.geburtsort}
-          />
-        ) : (
-          <p>{data.geburtsort}</p>
-        )}
-        <h2>Schwächen</h2>
-        {edit ? (
-          <input
-            name="schwaechen"
-            data-section="allgemeines"
-            onChange={(e) => handleChange(e)}
-            value={editCharacter.schwaechen}
-          />
-        ) : (
-          <p>{data.schwaechen}</p>
-        )}
-        <h2>Erscheinung</h2>
-        {edit ? (
-          <input
-            name="erscheinung"
-            data-section="allgemeines"
-            onChange={(e) => handleChange(e)}
-            value={editCharacter.erscheinung}
-          />
-        ) : (
-          <p>{data.erscheinung}</p>
-        )}
+        {charakterOverview.map((item, index) => (
+          <React.Fragment key={index}>
+            <h2>
+              {item.slice(0, 1).toUpperCase() +
+                item.slice(1).replace("ae", "ä")}
+            </h2>
+            {edit ? (
+              <input
+                name={item}
+                data-section="allgemeines"
+                onChange={(e) => handleChange(e)}
+                value={editCharacter[item]}
+              />
+            ) : (
+              <p>{data[item]}</p>
+            )}
+          </React.Fragment>
+        ))}
       </div>
 
       <h2>Erfahrungspunkte</h2>

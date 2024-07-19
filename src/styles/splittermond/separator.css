@@ -1,0 +1,18 @@
+.splittermond {
+  .separator {
+    background-color: var(--blue-color-dark);
+    color: white;
+    font-size: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem 0rem;
+    margin-top: 5rem;
+    h2 {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

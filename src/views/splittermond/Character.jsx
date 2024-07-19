@@ -24,6 +24,7 @@ import WaffenRuestung from "./info/Waffen_Ruestung.jsx";
 import Menu from "./Menu.jsx";
 
 import BeatLoader from "react-spinners/BeatLoader"; //Loader
+import Separator from "./Separator.jsx";
 
 const override = {
   display: "block",
@@ -140,13 +141,17 @@ const Character = () => {
             setNewItem={setNewItem}
             setFertigkeit={setFertigkeit}
           />
+          <Separator section="charakter" />
           <Overview
             data={character.allgemeines}
             handleChange={handleChange}
             editCharacter={newCharacter.allgemeines}
             edit={edit}
           />
-          <div id="navattribute"></div>
+          <Separator
+            section="attribute und abgeleitete werte"
+            navId="navattribute"
+          />
           <Attribute
             data={character}
             heldengrad={character.allgemeines.heldengrad}
@@ -155,7 +160,10 @@ const Character = () => {
             editCharacter={newCharacter.attribute}
             edit={edit}
           />
-          <div id="navfertigkeiten"></div>
+          <Separator
+            section="fertigkeiten und meisterschaften"
+            navId="navfertigkeiten"
+          />
           <Fertigkeiten
             data={character.fertigkeiten}
             heldengrad={character.allgemeines.heldengrad}
@@ -179,7 +187,7 @@ const Character = () => {
             setNewItem={setNewItem}
             setEditCharacter={setNewCharacter}
           />
-          <div id="navstaerken"></div>
+          <Separator section="ressourcen und stärken" navId="navstaerken" />
           <Ressourcen
             ressourcen={character.ressourcen}
             editCharacter={newCharacter.ressourcen}
@@ -197,12 +205,12 @@ const Character = () => {
             setNewItem={setNewItem}
             handleChange={handleChange}
           />
-          <div id="navmondzeichen"></div>
+          <Separator section="mondzeichen" navId="navmondzeichen" />
           <Mondzeichen
             mond={character.mondzeichen}
             level={character.allgemeines.heldengrad}
           />
-          <div id="navkampf"></div>
+          <Separator section="kampffertigkeiten und waffen" navId="navkampf" />
           <Kampffertigkeiten
             data={character.kampffertigkeiten}
             editCharacter={newCharacter.kampffertigkeiten}
@@ -235,7 +243,7 @@ const Character = () => {
             handleChange={handleChange}
             setMessage={setMessage}
           />
-          <div id="navmagie"></div>
+          <Separator section="magie und zauber" navId="navmagie" />
           <Magieschulen
             fertigkeiten={character.magieschulen}
             attribute={character.attribute}
@@ -272,6 +280,7 @@ const Character = () => {
             kampffertigkeiten={character.kampffertigkeiten}
             attribute={character.attribute}
           />
+            <Separator section="ausrüstung und vermögen" navId="navausruestung" />
           <div id="navausruestung"></div>
           <Ausruestung
             ausruestung={character.ausruestung}
