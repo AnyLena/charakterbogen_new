@@ -3,10 +3,58 @@
     margin: 10px;
 
     h3 {
-        font-size: 1.2rem;
+      font-size: 1.2rem;
     }
     p {
       font-size: 1.2rem;
+    }
+  }
+  .alert {
+    display: flex;
+    justify-content: center;
+    p {
+      font-size: 1.3rem;
+      padding: 5px 10px;
+      border-radius: 15px;
+      background-color: brown;
+      color: white;
+    }
+  }
+  .new-weapon-form {
+    margin: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border: 5px var(--blue-color) solid;
+    h2 {
+      margin-top: 1rem;
+    }
+    select {
+      min-width: 100%;
+    }
+    label {
+      font-size: 1.2rem;
+      padding-top: 0.7rem;
+      line-height: 6px;
+    }
+    .radiobuttons {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr 2fr;
+      padding-top: 1rem;
+      label {
+        padding-top: 0;
+        display: flex;
+        align-items: center;
+      }
+    }
+    .schaden {
+      display: grid;
+      grid-template-columns: 2fr 1fr 2fr 1fr 2fr;
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }

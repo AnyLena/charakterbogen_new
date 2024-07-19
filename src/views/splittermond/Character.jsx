@@ -221,6 +221,13 @@ const Character = () => {
             waffen={character.waffen}
             kampffertigkeiten={character.kampffertigkeiten}
             attribute={character.attribute}
+            characterId={character._id}
+            edit={edit}
+            setEdit={setEdit}
+            newItem={newItem}
+            setNewItem={setNewItem}
+            setCharacter={setCharacter}
+            setEditCharacter={setNewCharacter}
           />
           <WaffenRuestung ruestungen={character.ruestungen} />
           <MeisterschaftenKampf
@@ -280,7 +287,7 @@ const Character = () => {
             kampffertigkeiten={character.kampffertigkeiten}
             attribute={character.attribute}
           />
-            <Separator section="ausrüstung und vermögen" navId="navausruestung" />
+          <Separator section="ausrüstung und vermögen" navId="navausruestung" />
           <div id="navausruestung"></div>
           <Ausruestung
             ausruestung={character.ausruestung}

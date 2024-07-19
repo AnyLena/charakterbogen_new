@@ -115,6 +115,17 @@ export const KampffertigkeitenListe = [
   "Wurfwaffen",
 ];
 
+export const Attribute = [
+  "Ausstrahlung",
+  "Beweglichkeit",
+  "Intuition",
+  "Konstitution",
+  "Mystik",
+  "Stärke",
+  "Verstand",
+  "Willenskraft",
+];
+
 export const magiefertigkeitenListe = [
   { name: "bannmagie", attributes: ["mystik", "willenskraft"] },
   { name: "beherrschungsmagie", attributes: ["mystik", "willenskraft"] },
