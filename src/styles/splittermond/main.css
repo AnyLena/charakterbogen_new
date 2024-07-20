@@ -5,6 +5,53 @@
   background-color: var(--blue-color-verylight);
   .choose-character {
     display: flex;
+    gap: 20px;
     justify-content: center;
+    button {
+      font-size: 1.5rem;
+    }
+  }
+
+  .newChar {
+    max-width: 40rem;
+    margin: 5rem auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border: 5px var(--blue-color) solid;
+    text-align: center;
+    input {
+      margin: 0;
+      text-align: center;
+    }
+    h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    label {
+      font-size: 1.2rem;
+      margin-top: 15px;
+    }
+    button {
+      margin: auto;
+    }
+    .goButton {
+      background-color: var(--green-color);
+      &:hover {
+        background-color: var(--green-color-light);
+        color: black;
+      }
+    }
+    .cancelButton {
+      margin-top: 2rem;
+      background-color: var(--red-color);
+      &:hover {
+        background-color: var(--red-color-light);
+        color: black;
+      }
+    }
+  }
+  .eraseChar {
+    border: 5px var(--red-color) solid;
   }
 }

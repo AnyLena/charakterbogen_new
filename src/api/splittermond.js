@@ -53,19 +53,14 @@ export const handleSubmit = async (charData, setMessage) => {
   }
 };
 
-export const handleCreate = async (
-  playerId,
-  begleiter,
-  setCharData,
-  setAllData
-) => {
+export const handleCreate = async (playerId, begleiter, setAllData, charName) => {
   try {
     const response = await axios.post(`${SERVER}/splittermond`, {
       id: playerId,
       begleiter,
+      charName
     });
     setAllData((prev) => [...prev, response.data]);
-    if (!begleiter) setCharData(response.data);
   } catch (error) {
     console.log(error.message);
   }
@@ -73,9 +68,7 @@ export const handleCreate = async (
 
 export const handleDelete = async (
   id,
-  setAllData,
-  setCharData,
-  setShowDelete
+  // setAllData,
 ) => {
   console.log(id);
   try {
@@ -84,15 +77,11 @@ export const handleDelete = async (
         id,
       },
     });
-    setAllData((prevData) =>
-      prevData.filter((item) => {
-        return item._id !== id;
-      })
-    );
-    if (setCharData !== null) {
-      setCharData({});
-      setShowDelete(false);
-    }
+    // setAllData((prevData) =>
+    //   prevData.filter((item) => {
+    //     return item._id !== id;
+    //   })
+    // );
   } catch (error) {
     console.log(error.message);
   }
