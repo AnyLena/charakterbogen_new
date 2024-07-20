@@ -33,6 +33,27 @@ const Overview = ({ data, handleChange, editCharacter, edit }) => {
             )}
           </React.Fragment>
         ))}
+        <h2>Geschlecht</h2>
+        {edit ? (
+          <select
+            name="geschlecht"
+            data-section="allgemeines"
+            value={editCharacter.geschlecht}
+            onChange={(e) => handleChange(e)}
+          >
+            <option value="m">männlich</option>
+            <option value="w">weiblich</option>
+            <option value="d">divers</option>
+          </select>
+        ) : (
+          <p>
+            {data.geschlecht === "m"
+              ? "männlich"
+              : data.geschlecht === "w"
+              ? "weiblich"
+              : "divers"}
+          </p>
+        )}
       </div>
 
       <h2>Erfahrungspunkte</h2>
@@ -79,11 +100,38 @@ const Overview = ({ data, handleChange, editCharacter, edit }) => {
             type="number"
             onChange={(e) => handleChange(e)}
             value={editCharacter.heldengrad}
+            min={1}
+            max={4}
             style={{ width: "100%", textAlign: "center" }}
           />
         ) : (
           <p className="text-center">{data.heldengrad}</p>
         )}
+        <p className="text-center">
+          {data.heldengrad === 4 && data.geschlecht === "m"
+            ? "Heroe"
+            : data.heldengrad === 4 && data.geschlecht === "w"
+            ? "Heroin"
+            : data.heldengrad === 4 && data.geschlecht === "d"
+            ? "Hero"
+            : data.heldengrad === 3 && data.geschlecht === "m"
+            ? "Veteran"
+            : data.heldengrad === 3 && data.geschlecht === "w"
+            ? "Veteranin"
+            : data.heldengrad === 3 && data.geschlecht === "d"
+            ? "Veteran:in"
+            : data.heldengrad === 2 && data.geschlecht === "m"
+            ? "Wanderer"
+            : data.heldengrad === 2 && data.geschlecht === "w"
+            ? "Wanderin"
+            : data.heldengrad === 2 && data.geschlecht === "d"
+            ? "Wander:in"
+            : data.heldengrad === 1 && data.geschlecht === "m"
+            ? "Suchender"
+            : data.heldengrad === 1 && data.geschlecht === "w"
+            ? "Suchende"
+            : "Suchende:r"}
+        </p>
       </div>
     </>
   );
