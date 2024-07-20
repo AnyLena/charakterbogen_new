@@ -165,6 +165,7 @@ const WaffenNeu = ({
               id="merkmale"
               name="waffeMerkmale"
               type="text"
+              value={newWeapon.waffeMerkmale}
               onChange={(e) => handleChangeWeapon(e)}
             />
 
@@ -204,6 +205,7 @@ const WaffenNeu = ({
               id="waffeWGS"
               name="waffeWGS"
               type="number"
+              value={newWeapon.waffeWGS}
               min={0}
               onChange={(e) => handleChangeWeapon(e)}
             />
@@ -213,6 +215,7 @@ const WaffenNeu = ({
               id="waffeMod"
               name="waffeMod"
               type="number"
+              value={newWeapon.waffeMod}
               min={0}
               onChange={(e) => handleChangeWeapon(e)}
             />

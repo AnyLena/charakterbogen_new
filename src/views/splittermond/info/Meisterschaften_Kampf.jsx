@@ -7,7 +7,7 @@ import {
   getMeisterschaften,
 } from "../../../api/splittermond";
 import { useState } from "react";
-import { GiCrossMark } from "react-icons/gi";
+import DeleteButton from "../../../components/splittermond/DeleteButton";
 import { KampffertigkeitenListe } from "../../../utils/staerkenFertigkeiten";
 
 const MeisterschaftenKampf = ({
@@ -23,7 +23,6 @@ const MeisterschaftenKampf = ({
   setFertigkeit,
   setNewItem,
 }) => {
-
   const [selection, setSelection] = useState([]);
   const [selectedItem, setSelectedItem] = useState({});
 
@@ -48,7 +47,9 @@ const MeisterschaftenKampf = ({
 
   return (
     <>
-      {edit && meisterschaften.length === 0 ? <h2>Kampfmeisterschaften</h2> : null}
+      {edit && meisterschaften.length === 0 ? (
+        <h2>Kampfmeisterschaften</h2>
+      ) : null}
       {meisterschaften.length > 0 ? (
         <>
           <h2>Kampfmeisterschaften</h2>
@@ -68,21 +69,12 @@ const MeisterschaftenKampf = ({
                     onChange={(e) => handleChange(e)}
                     value={editCharacter[index].kampfmeisterschaftWirkung}
                   />
-                  <div className="button-div erase-btn">
-                    <button
-                      onClick={() =>
-                        deleteItem(
-                          character._id,
-                          item._id,
-                          "kampfmeisterschaften",
-                          setCharacter
-                        )
-                      }
-                    >
-                      <GiCrossMark />
-                      löschen
-                    </button>
-                  </div>
+                  <DeleteButton
+                    characterId={character._id}
+                    itemId={item._id}
+                    group="kampfmeisterschaften"
+                    setCharacter={setCharacter}
+                  />
                 </>
               ) : (
                 <>

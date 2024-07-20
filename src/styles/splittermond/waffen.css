@@ -56,6 +56,15 @@
         justify-content: center;
       }
     }
+    .kosten {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr;
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
   h3.armor {
     display: flex;

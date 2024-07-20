@@ -28,6 +28,7 @@ import Separator from "./Separator.jsx";
 import WaffenFern from "./info/Waffen_Fern.jsx";
 import WaffenNeu from "./info/Waffen_Neu.jsx";
 import WaffenSchild from "./info/Waffen_Schild.jsx";
+import WaffenMagieNeu from "./info/Waffen_MagieNeu.jsx";
 
 const override = {
   display: "block",
@@ -253,7 +254,7 @@ const Character = () => {
             newItem={newItem}
             setNewItem={setNewItem}
           />
-           <WaffenSchild
+          <WaffenSchild
             schilde={character.schild}
             attribute={character.attribute}
             kampffertigkeiten={character.kampffertigkeiten}
@@ -320,6 +321,17 @@ const Character = () => {
             zauber={character.zauber}
             kampffertigkeiten={character.kampffertigkeiten}
             attribute={character.attribute}
+            characterId={character._id}
+            setCharacter={setCharacter}
+            edit={edit}
+          />
+          <WaffenMagieNeu
+            setCharacter={setCharacter}
+            setEditCharacter={setNewCharacter}
+            characterId={character._id}
+            edit={edit}
+            newItem={newItem}
+            setNewItem={setNewItem}
           />
           <Separator section="ausrüstung und vermögen" navId="navausruestung" />
           <div id="navausruestung"></div>
