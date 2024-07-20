@@ -9,6 +9,13 @@ import { useEffect, useState } from "react";
 
 import DeleteButton from "../../../components/splittermond/DeleteButton";
 
+import { GiBoneKnife } from "react-icons/gi";
+import { GiFist } from "react-icons/gi";
+import { GiSpearFeather } from "react-icons/gi";
+import { GiKatana } from "react-icons/gi";
+import { GiWoodClub } from "react-icons/gi";
+import { GiHarpoonChain } from "react-icons/gi";
+
 const WaffenNah = ({
   waffen,
   kampffertigkeiten,
@@ -49,7 +56,22 @@ const WaffenNah = ({
             .filter((item) => item.waffeTyp === "nah")
             .map((item, index) => (
               <div className="box-meister" key={index}>
-                <h3>{item.waffeName}</h3>
+                <h3 className="active">
+                  {item.waffeFertigkeit === "handgemenge" ? (
+                    <GiFist />
+                  ) : item.waffeFertigkeit === "stangenwaffen" ? (
+                    <GiSpearFeather />
+                  ) : item.waffeFertigkeit === "klingenwaffen" ? (
+                    <GiKatana />
+                  ) : item.waffeFertigkeit === "hiebwaffen" ? (
+                    <GiWoodClub />
+                  ) : item.waffeFertigkeit === "kettenwaffen" ? (
+                    <GiHarpoonChain />
+                  ) : (
+                    <GiBoneKnife />
+                  )}
+                  {item.waffeName}
+                </h3>
                 <p className="subtext">
                   Fertigkeit:{" "}
                   {item.waffeFertigkeit.slice(0, 1).toUpperCase() +

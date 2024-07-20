@@ -20,7 +20,11 @@ export const bonusFokuspunkte = (charData) => {
 
 export const bonusVerteidigung = (charData) => {
   const ruestung = charData.ruestungen.reduce((prevValue, currentValue) => {
-    return prevValue + currentValue.ruestungVTD;
+    if (currentValue.ruestungAktiv) {
+      return prevValue + currentValue.ruestungVTD;
+    } else {
+      return prevValue + 0;
+    }
   }, 0);
   const schild = charData.schild.reduce((prevValue, currentValue) => {
     return prevValue + currentValue.schildVTD;

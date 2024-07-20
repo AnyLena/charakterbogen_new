@@ -9,6 +9,9 @@ import { useEffect, useState } from "react";
 
 import DeleteButton from "../../../components/splittermond/DeleteButton";
 
+import { GiCrossbow } from "react-icons/gi";
+import { GiStarShuriken } from "react-icons/gi";
+
 const WaffenFern = ({
   waffen,
   kampffertigkeiten,
@@ -49,7 +52,14 @@ const WaffenFern = ({
             .filter((item) => item.waffeTyp === "fern")
             .map((item, index) => (
               <div className="box-meister" key={index}>
-                <h3>{item.waffeName}</h3>
+                <h3 className="active">
+                  {item.waffeFertigkeit === "wurfwaffen" ? (
+                    <GiStarShuriken />
+                  ) : (
+                    <GiCrossbow />
+                  )}{" "}
+                  {item.waffeName}
+                </h3>
                 <p className="subtext">
                   Fertigkeit:{" "}
                   {item.waffeFertigkeit.slice(0, 1).toUpperCase() +

@@ -57,4 +57,28 @@
       }
     }
   }
+  h3.armor {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    svg {
+      color: var(--blue-color-light);
+      font-size: 2rem;
+    }
+  }
+  h3.active {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    svg {
+      color: var(--blue-color-dark);
+      font-size: 2rem;
+    }
+  }
+  .armorButton {
+    margin-left: auto;
+    button {
+      padding: 2px 5px;
+    }
+  }
 }

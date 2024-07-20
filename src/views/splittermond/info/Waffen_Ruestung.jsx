@@ -5,6 +5,9 @@ import "../../../styles/splittermond/waffen.css";
 
 import { useEffect, useState } from "react";
 import { addItem } from "../../../api/splittermond";
+import { activateItem } from "../../../api/splittermond";
+
+import { GiChestArmor } from "react-icons/gi";
 
 import DeleteButton from "../../../components/splittermond/DeleteButton";
 
@@ -40,9 +43,22 @@ const WaffenRuestung = ({
     }));
   };
 
+  const handleArmor = (id, section, subsection, value) => {
+    const newValue = !value 
+    activateItem(
+      characterId,
+      id,
+      section,
+      subsection,
+      newValue,
+      setCharacter
+    )
+  };
+
   useEffect(() => {
     console.log(newArmor);
   }, [newArmor]);
+
   const saveItem = () => {
     if (!newArmor.ruestungName) {
       setAlert("Bitte Name der Rüstung eintragen");
@@ -73,8 +89,15 @@ const WaffenRuestung = ({
           <h2>Rüstung</h2>
           {ruestungen.map((item, index) => (
             <div className="box-meister" key={index}>
-              <h3>{item.ruestungName}</h3>
-
+              <h3 className={item.ruestungAktiv ? "armor active" : "armor"}>
+                <GiChestArmor />{" "}
+                {item.ruestungName} {item.ruestungAktiv ? "(aktiv)" : null}
+              </h3>
+              <div className="subtext armorButton">
+                <button onClick={() => handleArmor(item._id, "ruestungen", "ruestungAktiv", item.ruestungAktiv)}>
+                  {item.ruestungAktiv ? "ablegen" : "anlegen"}
+                </button>
+              </div>
               <div className="description box-description">
                 <p>Bonus VTD</p>
                 <p className="descriptionValue">{item.ruestungVTD}</p>

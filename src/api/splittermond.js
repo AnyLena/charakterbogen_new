@@ -121,7 +121,6 @@ export const addItem = async (
       ...prev,
       [section]: [...prev[section], newItem],
     }));
-
   } catch (error) {
     console.log(error.message);
   }
@@ -149,6 +148,39 @@ export const getMondzeichen = async (id, setMondzeichen) => {
       `${SERVER}/splittermond/mondzeichen/${id}`
     );
     setMondzeichen(response.data);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const activateItem = async (
+  charId,
+  itemId,
+  section,
+  subsection,
+  newValue,
+  setCharacter
+) => {
+  try {
+    const response = await axios.put(`${SERVER}/splittermond/activateItem`, {
+      charId,
+      itemId,
+      section,
+      subsection,
+      newValue,
+    });
+    setCharacter((prev) => {
+      const newState = { ...prev };
+      if (Array.isArray(newState[section])) {
+        newState[section] = newState[section].map((item) => {
+          if (item._id === itemId) {
+            return { ...item, [subsection]: newValue };
+          }
+          return item;
+        });
+      }
+      return newState;
+    });
   } catch (error) {
     console.log(error.message);
   }
