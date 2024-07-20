@@ -27,6 +27,7 @@ import BeatLoader from "react-spinners/BeatLoader"; //Loader
 import Separator from "./Separator.jsx";
 import WaffenFern from "./info/Waffen_Fern.jsx";
 import WaffenNeu from "./info/Waffen_Neu.jsx";
+import WaffenSchild from "./info/Waffen_Schild.jsx";
 
 const override = {
   display: "block",
@@ -245,6 +246,17 @@ const Character = () => {
           />
           <WaffenRuestung
             ruestungen={character.ruestungen}
+            setCharacter={setCharacter}
+            setEditCharacter={setNewCharacter}
+            characterId={character._id}
+            edit={edit}
+            newItem={newItem}
+            setNewItem={setNewItem}
+          />
+           <WaffenSchild
+            schilde={character.schild}
+            attribute={character.attribute}
+            kampffertigkeiten={character.kampffertigkeiten}
             setCharacter={setCharacter}
             setEditCharacter={setNewCharacter}
             characterId={character._id}

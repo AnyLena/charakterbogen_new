@@ -15,8 +15,8 @@ export const bonusLebenspunkte = (charData) => {
 };
 
 export const bonusFokuspunkte = (charData) => {
-  return 0
-}
+  return 0;
+};
 
 export const bonusVerteidigung = (charData) => {
   const ruestung = charData.ruestungen.reduce((prevValue, currentValue) => {
@@ -27,9 +27,13 @@ export const bonusVerteidigung = (charData) => {
     }
   }, 0);
   const schild = charData.schild.reduce((prevValue, currentValue) => {
-    return prevValue + currentValue.schildVTD;
+    if (currentValue.schildAktiv) {
+      return prevValue + currentValue.schildVTD;
+    } else {
+      return prevValue + 0;
+    }
   }, 0);
-  return ruestung + schild
+  return ruestung + schild;
 };
 
 export const bonusGeschwindigkeit = (charData) => {

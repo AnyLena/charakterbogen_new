@@ -1,6 +1,6 @@
 export const attributFormatter = (attr) => {
   switch (attr) {
-    case "ausstrahulung":
+    case "ausstrahlung":
       return "AUS";
     case "beweglichkeit":
       return "BEW";
