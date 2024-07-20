@@ -25,6 +25,8 @@ import Menu from "./Menu.jsx";
 
 import BeatLoader from "react-spinners/BeatLoader"; //Loader
 import Separator from "./Separator.jsx";
+import WaffenFern from "./info/Waffen_Fern.jsx";
+import WaffenNeu from "./info/Waffen_Neu.jsx";
 
 const override = {
   display: "block",
@@ -218,6 +220,30 @@ const Character = () => {
             edit={edit}
           />
           <WaffenNah
+            waffen={character.waffen}
+            kampffertigkeiten={character.kampffertigkeiten}
+            attribute={character.attribute}
+            characterId={character._id}
+            edit={edit}
+            setEdit={setEdit}
+            newItem={newItem}
+            setNewItem={setNewItem}
+            setCharacter={setCharacter}
+            setEditCharacter={setNewCharacter}
+          />
+          <WaffenFern
+            waffen={character.waffen}
+            kampffertigkeiten={character.kampffertigkeiten}
+            attribute={character.attribute}
+            characterId={character._id}
+            edit={edit}
+            setEdit={setEdit}
+            newItem={newItem}
+            setNewItem={setNewItem}
+            setCharacter={setCharacter}
+            setEditCharacter={setNewCharacter}
+          />
+          <WaffenNeu
             waffen={character.waffen}
             kampffertigkeiten={character.kampffertigkeiten}
             attribute={character.attribute}

@@ -10,7 +10,14 @@ import { useEffect, useState } from "react";
 import { deleteItem } from "../../../api/splittermond";
 import { GiCrossMark } from "react-icons/gi";
 
-const WaffenNah = ({ waffen, kampffertigkeiten, attribute, characterId, setCharacter, edit }) => {
+const WaffenFern = ({
+  waffen,
+  kampffertigkeiten,
+  attribute,
+  characterId,
+  setCharacter,
+  edit,
+}) => {
   const [open, setOpen] = useState(false);
   const [waffenMerkmale, setWaffenmerkmale] = useState([]);
 
@@ -36,11 +43,11 @@ const WaffenNah = ({ waffen, kampffertigkeiten, attribute, characterId, setChara
 
   return (
     <>
-      {waffen.length > 0 && waffen.some((item) => item.waffeTyp === "nah") ? (
+      {waffen.length > 0 && waffen.some((item) => item.waffeTyp === "fern") ? (
         <>
-          <h2>Nahkampfwaffen</h2>
+          <h2>Fernkampfwaffen</h2>
           {waffen
-            .filter((item) => item.waffeTyp === "nah")
+            .filter((item) => item.waffeTyp === "fern")
             .map((item, index) => (
               <div className="box-meister" key={index}>
                 <h3>{item.waffeName}</h3>
@@ -73,17 +80,28 @@ const WaffenNah = ({ waffen, kampffertigkeiten, attribute, characterId, setChara
                   <p className="descriptionValue">{item.waffeWGS}</p>
                   <p>Schaden</p>
                   <p className="descriptionValue">{item.waffeSchaden}</p>
+                  <p>Munition</p>
+                  <p className="descriptionValue">{item.waffeMun}</p>
+                  <p>Reichweite</p>
+                  <p className="descriptionValue">{item.waffeRW}</p>
                 </div>
-                {edit ? <div className="button-div erase-btn">
-                  <button
-                    onClick={() =>
-                      deleteItem(characterId, item._id, "waffen", setCharacter)
-                    }
-                  >
-                    <GiCrossMark />
-                    löschen
-                  </button>
-                </div> :null}
+                {edit ? (
+                  <div className="button-div erase-btn">
+                    <button
+                      onClick={() =>
+                        deleteItem(
+                          characterId,
+                          item._id,
+                          "waffen",
+                          setCharacter
+                        )
+                      }
+                    >
+                      <GiCrossMark />
+                      löschen
+                    </button>
+                  </div>
+                ) : null}
               </div>
             ))}
           <div onClick={showAccordeon} className="accordeon">
@@ -103,4 +121,4 @@ const WaffenNah = ({ waffen, kampffertigkeiten, attribute, characterId, setChara
   );
 };
 
-export default WaffenNah;
+export default WaffenFern;
