@@ -1,9 +1,11 @@
 import "../../../styles/splittermond/box-meister.css";
 import "../../../styles/splittermond/meisterschaften.css";
+
 import { staerkenListe } from "../../../utils/staerkenFertigkeiten";
 import { useState } from "react";
-import { addItem, deleteItem } from "../../../api/splittermond";
-import { GiCrossMark } from "react-icons/gi";
+import { addItem } from "../../../api/splittermond";
+
+import DeleteButton from "../../../components/splittermond/DeleteButton";
 
 const Staerken = ({
   staerken,
@@ -14,7 +16,7 @@ const Staerken = ({
   edit,
   newItem,
   setNewItem,
-  handleChange
+  handleChange,
 }) => {
   const [selectedItem, setSelectedItem] = useState({});
 
@@ -38,7 +40,7 @@ const Staerken = ({
           {edit ? (
             <>
               <h3>{item.staerkeName}</h3>
-              <p className="subtext">     </p>
+              <p className="subtext"> </p>
               <textarea
                 className="description"
                 name="staerkeWirkung"
@@ -47,21 +49,12 @@ const Staerken = ({
                 onChange={(e) => handleChange(e)}
                 value={editCharacter[index].staerkeWirkung}
               />
-              <div className="button-div erase-btn">
-                <button
-                  onClick={() =>
-                    deleteItem(
-                      character._id,
-                      item._id,
-                      "staerken",
-                      setCharacter
-                    )
-                  }
-                >
-                  <GiCrossMark />
-                  löschen
-                </button>
-              </div>
+              <DeleteButton
+                characterId={character._id}
+                itemId={item._id}
+                group="staerken"
+                setCharacter={setCharacter}
+              />
             </>
           ) : (
             <>

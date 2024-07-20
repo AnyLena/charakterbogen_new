@@ -224,38 +224,34 @@ const Character = () => {
             kampffertigkeiten={character.kampffertigkeiten}
             attribute={character.attribute}
             characterId={character._id}
-            edit={edit}
-            setEdit={setEdit}
-            newItem={newItem}
-            setNewItem={setNewItem}
             setCharacter={setCharacter}
-            setEditCharacter={setNewCharacter}
+            edit={edit}
           />
           <WaffenFern
             waffen={character.waffen}
             kampffertigkeiten={character.kampffertigkeiten}
             attribute={character.attribute}
             characterId={character._id}
-            edit={edit}
-            setEdit={setEdit}
-            newItem={newItem}
-            setNewItem={setNewItem}
             setCharacter={setCharacter}
-            setEditCharacter={setNewCharacter}
+            edit={edit}
           />
           <WaffenNeu
-            waffen={character.waffen}
-            kampffertigkeiten={character.kampffertigkeiten}
-            attribute={character.attribute}
-            characterId={character._id}
-            edit={edit}
-            setEdit={setEdit}
-            newItem={newItem}
-            setNewItem={setNewItem}
             setCharacter={setCharacter}
             setEditCharacter={setNewCharacter}
+            characterId={character._id}
+            edit={edit}
+            newItem={newItem}
+            setNewItem={setNewItem}
           />
-          <WaffenRuestung ruestungen={character.ruestungen} />
+          <WaffenRuestung
+            ruestungen={character.ruestungen}
+            setCharacter={setCharacter}
+            setEditCharacter={setNewCharacter}
+            characterId={character._id}
+            edit={edit}
+            newItem={newItem}
+            setNewItem={setNewItem}
+          />
           <MeisterschaftenKampf
             meisterschaften={character.kampfmeisterschaften}
             setEditCharacter={setNewCharacter}

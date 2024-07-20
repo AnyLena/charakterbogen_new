@@ -1,14 +1,12 @@
 import "../../../styles/splittermond/box-meister.css";
 import "../../../styles/splittermond/box-single.css";
 import "../../../styles/splittermond/meisterschaften.css";
-import {
-  deleteItem,
-  getMeisterschaften,
-  addItem,
-} from "../../../api/splittermond";
-import { GiCrossMark } from "react-icons/gi";
+import { getMeisterschaften, addItem } from "../../../api/splittermond";
 import { meisterschaftenListe } from "../../../utils/staerkenFertigkeiten";
 import { useState } from "react";
+
+import DeleteButton from "../../../components/splittermond/DeleteButton";
+
 const Meisterschaften = ({
   character,
   setCharacter,
@@ -77,21 +75,12 @@ const Meisterschaften = ({
                 onChange={(e) => handleChange(e)}
                 value={editCharacterM[index].meisterschaftWirkung}
               />
-              <div className="button-div erase-btn">
-                <button
-                  onClick={() =>
-                    deleteItem(
-                      character._id,
-                      item._id,
-                      "meisterschaften",
-                      setCharacter
-                    )
-                  }
-                >
-                  <GiCrossMark />
-                  löschen
-                </button>
-              </div>
+              <DeleteButton
+                characterId={character._id}
+                itemId={item._id}
+                group="meisterschaften"
+                setCharacter={setCharacter}
+              />
             </>
           ) : (
             <>

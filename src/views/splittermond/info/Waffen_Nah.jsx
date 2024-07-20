@@ -7,10 +7,16 @@ import { attributFormatter } from "../../../utils/attribut-formatter";
 import { waffenMerkmaleFormatter } from "../../../utils/waffen-merkmale-formatter";
 import { useEffect, useState } from "react";
 
-import { deleteItem } from "../../../api/splittermond";
-import { GiCrossMark } from "react-icons/gi";
+import DeleteButton from "../../../components/splittermond/DeleteButton";
 
-const WaffenNah = ({ waffen, kampffertigkeiten, attribute, characterId, setCharacter, edit }) => {
+const WaffenNah = ({
+  waffen,
+  kampffertigkeiten,
+  attribute,
+  characterId,
+  setCharacter,
+  edit,
+}) => {
   const [open, setOpen] = useState(false);
   const [waffenMerkmale, setWaffenmerkmale] = useState([]);
 
@@ -74,16 +80,14 @@ const WaffenNah = ({ waffen, kampffertigkeiten, attribute, characterId, setChara
                   <p>Schaden</p>
                   <p className="descriptionValue">{item.waffeSchaden}</p>
                 </div>
-                {edit ? <div className="button-div erase-btn">
-                  <button
-                    onClick={() =>
-                      deleteItem(characterId, item._id, "waffen", setCharacter)
-                    }
-                  >
-                    <GiCrossMark />
-                    löschen
-                  </button>
-                </div> :null}
+                {edit ? (
+                  <DeleteButton
+                    characterId={characterId}
+                    itemId={item._id}
+                    group="waffen"
+                    setCharacter={setCharacter}
+                  />
+                ) : null}
               </div>
             ))}
           <div onClick={showAccordeon} className="accordeon">

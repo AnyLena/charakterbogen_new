@@ -7,8 +7,7 @@ import { attributFormatter } from "../../../utils/attribut-formatter";
 import { waffenMerkmaleFormatter } from "../../../utils/waffen-merkmale-formatter";
 import { useEffect, useState } from "react";
 
-import { deleteItem } from "../../../api/splittermond";
-import { GiCrossMark } from "react-icons/gi";
+import DeleteButton from "../../../components/splittermond/DeleteButton";
 
 const WaffenFern = ({
   waffen,
@@ -86,21 +85,12 @@ const WaffenFern = ({
                   <p className="descriptionValue">{item.waffeRW}</p>
                 </div>
                 {edit ? (
-                  <div className="button-div erase-btn">
-                    <button
-                      onClick={() =>
-                        deleteItem(
-                          characterId,
-                          item._id,
-                          "waffen",
-                          setCharacter
-                        )
-                      }
-                    >
-                      <GiCrossMark />
-                      löschen
-                    </button>
-                  </div>
+                  <DeleteButton
+                    characterId={characterId}
+                    itemId={item._id}
+                    group="waffen"
+                    setCharacter={setCharacter}
+                  />
                 ) : null}
               </div>
             ))}
