@@ -45,6 +45,7 @@ export const getCharacter = async (id, setCharData, authToken, setLoading) => {
 };
 
 export const handleSubmit = async (charData, setMessage) => {
+  console.log(charData);
   try {
     const response = await axios.put(`${SERVER}/splittermond`, charData);
     setMessage("Speichern erfolgreich");

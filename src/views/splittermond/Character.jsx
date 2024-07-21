@@ -116,6 +116,10 @@ const Character = () => {
     console.log("char", character);
   }, [character]);
 
+  useEffect(() => {
+    console.log("new char", newCharacter);
+  }, [newCharacter]);
+
   return (
     <>
       {loading ? (

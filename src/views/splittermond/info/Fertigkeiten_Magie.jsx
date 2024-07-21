@@ -2,10 +2,16 @@ import React from "react";
 import "../../../styles/splittermond/fertigkeiten.css";
 import { magiefertigkeitenListe } from "../../../utils/staerkenFertigkeiten";
 
-const Magieschulen = ({ fertigkeiten, attribute, edit, editCharacter, handleChange }) => {
+const Magieschulen = ({
+  fertigkeiten,
+  attribute,
+  edit,
+  editCharacter,
+  handleChange,
+}) => {
   return (
     <>
-      <h2>Magieschulen</h2>
+      {edit || fertigkeiten.length > 0 ? <h2>Magieschulen</h2> : null}
       <div className="fertigkeiten">
         <div>
           {magiefertigkeitenListe.map((item, index) => (
