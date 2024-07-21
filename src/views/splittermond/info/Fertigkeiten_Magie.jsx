@@ -11,7 +11,7 @@ const Magieschulen = ({
 }) => {
   return (
     <>
-      {edit || fertigkeiten.length > 0 ? <h2>Magieschulen</h2> : null}
+      {edit || Object.values(fertigkeiten).reduce((a,b)=> a+b) > 0 ? <h2>Magieschulen</h2> : null}
       <div className="fertigkeiten">
         <div>
           {magiefertigkeitenListe.map((item, index) => (
