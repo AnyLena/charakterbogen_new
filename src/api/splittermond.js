@@ -53,35 +53,44 @@ export const handleSubmit = async (charData, setMessage) => {
   }
 };
 
-export const handleCreate = async (playerId, begleiter, setAllData, charName) => {
+export const handleCreate = async (
+  playerId,
+  begleiter,
+  setAllData,
+  newChar,
+  authToken
+) => {
   try {
-    const response = await axios.post(`${SERVER}/splittermond`, {
-      id: playerId,
-      begleiter,
-      charName
-    });
+    const response = await axios.post(
+      `${SERVER}/splittermond`,
+      {
+        id: playerId,
+        begleiter,
+        newChar,
+      },
+      {
+        headers: { Authorization: `Bearer ${authToken}` },
+      }
+    );
     setAllData((prev) => [...prev, response.data]);
   } catch (error) {
     console.log(error.message);
   }
 };
 
-export const handleDelete = async (
-  id,
-  // setAllData,
-) => {
-  console.log(id);
+export const handleDelete = async (id, authToken, setAllData) => {
   try {
     await axios.delete(`${SERVER}/splittermond`, {
+      headers: { Authorization: `Bearer ${authToken}` },
       data: {
         id,
       },
     });
-    // setAllData((prevData) =>
-    //   prevData.filter((item) => {
-    //     return item._id !== id;
-    //   })
-    // );
+    setAllData((prevData) =>
+      prevData.filter((item) => {
+        return item._id !== id;
+      })
+    );
   } catch (error) {
     console.log(error.message);
   }
@@ -135,6 +144,17 @@ export const getMondzeichen = async (id, setMondzeichen) => {
   try {
     const response = await axios.get(
       `${SERVER}/splittermond/mondzeichen/${id}`
+    );
+    setMondzeichen(response.data);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getMondzeichenByName = async (mondName, setMondzeichen) => {
+  try {
+    const response = await axios.get(
+      `${SERVER}/splittermond/mondzeichen/name/${mondName}`
     );
     setMondzeichen(response.data);
   } catch (error) {

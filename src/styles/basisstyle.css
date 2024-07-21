@@ -70,6 +70,15 @@ button {
   }
 }
 
+button.disabled {
+  background-color: lightgrey;
+  color: #222222;
+  &:hover {
+    background-color: lightgrey;
+    color: #222222;
+  }
+}
+
 /* Weitere div-styles */
 
 .full-height {
@@ -97,7 +106,9 @@ button {
   }
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   margin: 0;
   border: 2px solid var(--blue-color);
   border-radius: 3px;

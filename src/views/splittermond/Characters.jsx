@@ -3,10 +3,12 @@ import "../../styles/splittermond/main.css";
 import "../../styles/basisstyle.css";
 import "../../styles/loader.css";
 import { useAuth } from "../../context/AuthContext";
-import { handleCreate, getCharacters, handleDelete } from "../../api/splittermond.js";
+import { getCharacters, handleDelete } from "../../api/splittermond.js";
 import { Link } from "react-router-dom";
 
 import BeatLoader from "react-spinners/BeatLoader";
+import Character_CreateNew from "./Character_CreateNew.jsx";
+import CharacterDelete from "./Character_Delete.jsx";
 
 const override = {
   display: "block",
@@ -18,10 +20,19 @@ const Characters = () => {
   const { player } = useAuth();
   const [allData, setAllData] = useState("");
   const [loading, setLoading] = useState(false);
-  const [newCharName, setNewCharName] = useState("");
-  const [deleteCharName, setDeleteCharName] = useState("");
-  const [open, setOpen] = useState(false);
-  const [deleteId, setDeleteId] = useState(null);
+
+  const [create, setCreate] = useState(false);
+  const [deleteChar, setDeleteChar] = useState(false);
+
+  const handleDelete = () => {
+    setDeleteChar(true);
+    setCreate(false)
+  };
+
+  const handleCreate = () => {
+    setDeleteChar(false);
+    setCreate(true)
+  };
 
   useEffect(() => {
     if (player && player._id) {
@@ -33,38 +44,6 @@ const Characters = () => {
   // useEffect(() => {
   //   console.log("all", allData);
   // }, [allData]);
-
-  const handleChange = (e) => {
-    setNewCharName(e.target.value);
-  };
-  const handleChangeD = (e) => {
-    setDeleteCharName(e.target.value);
-  };
-
-  const handleAdd = (e) => {
-    e.preventDefault();
-    handleCreate(player._id, false, setAllData, newCharName);
-    setNewCharName("");
-  };
-
-  const handleChooseForDeletion = (id) => {
-    setDeleteId(id);
-  };
-
-  const handleDeleteChar = (e) => {
-    // e.preventDefault();
-    console.log(deleteId);
-    const charName = allData.filter((item) => item._id === deleteId)[0]
-      .allgemeines.name;
-    if (deleteCharName === charName) {
-      handleDelete(deleteId);
-    }
-  };
-
-  const handleCancel = () => {
-    setOpen(false);
-    setDeleteId(null);
-  };
 
   return (
     <section className="splittermond full-height">
@@ -101,65 +80,32 @@ const Characters = () => {
             )
           : null}
       </div>
-      <div className="newChar">
-        <h3>Neuen Charakterbogen erstellen</h3>
-        <form onSubmit={(e) => handleAdd(e)}>
-          <label htmlFor="newName">Name des Charakters:</label>
-          <input
-            value={newCharName}
-            type="text"
-            name="newName"
-            onChange={(e) => handleChange(e)}
-          />
-          <button type="submit">bestätigen</button>
-        </form>
-      </div>
 
-      {/* <div className="newChar eraseChar">
-        <h3>Charakterbogen löschen</h3>
-        {!open ? (
-          <button onClick={() => setOpen(true)}>
-            Charaktere zum Löschen auswählen
+      <h2>Weitere Aktionen:</h2>
+
+      <div className="choose-character">
+        {!create ? (
+          <button onClick={handleCreate}>
+            Neuen Charakter erstellen
           </button>
         ) : null}
-        {open ? (
-          <>
-            <div className="choose-character">
-              {allData.length > 0
-                ? allData.map((char, index) =>
-                    !char.begleiter ? (
-                      <div key={"char" + index}>
-                        <button
-                          key={char._id}
-                          onClick={() => handleChooseForDeletion(char._id)}
-                        >
-                          {char.allgemeines.name}
-                        </button>
-                      </div>
-                    ) : null
-                  )
-                : null}
-            </div>
-            <form onSubmit={handleDeleteChar}>
-              <label htmlFor="newName">
-                Namen des Charakters zum Bestätigen eintragen:
-              </label>
-              <input
-                value={deleteCharName}
-                type="text"
-                name="newName"
-                onChange={(e) => handleChangeD(e)}
-              />
-              <button className="goButton" type="submit">
-                bestätigen
-              </button>
-            </form>
-            <button className="cancelButton" onClick={handleCancel}>
-              abbrechen
-            </button>
-          </>
+
+        {!deleteChar ? (
+          <button onClick={handleDelete}>Charakter löschen</button>
         ) : null}
-      </div> */}
+      </div>
+
+      {create ? (
+        <Character_CreateNew setCreate={setCreate} setAllData={setAllData} />
+      ) : null}
+
+      {deleteChar ? (
+        <CharacterDelete
+          setDeleteChar={setDeleteChar}
+          allData={allData}
+          setAllData={setAllData}
+        />
+      ) : null}
     </section>
   );
 };

@@ -5,6 +5,7 @@
   background-color: var(--blue-color-verylight);
   .choose-character {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
     button {
@@ -35,23 +36,25 @@
     button {
       margin: auto;
     }
-    .goButton {
-      background-color: var(--green-color);
-      &:hover {
-        background-color: var(--green-color-light);
-        color: black;
-      }
-    }
-    .cancelButton {
-      margin-top: 2rem;
+    .buttonBorder {
       background-color: var(--red-color);
       &:hover {
-        background-color: var(--red-color-light);
-        color: black;
+        color: white;
       }
     }
   }
   .eraseChar {
     border: 5px var(--red-color) solid;
+  }
+  .newChar_attributes {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    text-align: left;
+    gap: 5px;
+    label {
+      display: flex;
+      align-items: center;
+      margin: 0;
+    }
   }
 }
